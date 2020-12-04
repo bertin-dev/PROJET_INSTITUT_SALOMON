@@ -1286,3 +1286,71 @@
         </div>
     </div>
 </div>
+
+
+
+<!-- ajouter des programmes associatifs-->
+<div class="modal fade" id="vie_ass2" tabindex="-1" role="application" aria-labelledby="vie_ass2"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Vie Associative</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="justify-content-center">
+
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+
+                            <div class="p-5">
+                                <div id="rapportVA2" class="alert alert-danger" style="display:none;"></div>
+                                <form class="user form_via_ass2" role="form"
+                                      action="controllers/traitement.php?vie_ass=vie_ass" method="post">
+                                    <input type="hidden" name="header_id" value="<?= isset($_ENV['header_id'])? $_ENV['header_id'] : '6' ?>">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="lbl" id="lbl"
+                                               aria-describedby="lbl" placeholder="Libelle*">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <textarea class="form-control" aria-describedby="desc"
+                                                  name="desc" id="desc" cols="10" rows="3"
+                                                  placeholder="Description"></textarea>
+                                    </div>
+
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="inputGroupFileAddon01">Importer Image</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" name="img_url" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                                            <label class="custom-file-label" for="inputGroupFile01">Facultatif</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary btn-user btn-block currentSend"
+                                               value="Ajouter"/>
+                                        <center><img src="img/loader.gif" class="loader" style="display:none;"></center>
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1158,10 +1158,67 @@ if(isset($_GET['vie_ass'])) {
             $message .= 'Cet élément existe déjà';
         }
         else {
+
+            $imgArticle = '';
+            if(isset($_FILES['img_url']['name']) AND !empty($_FILES['img_url']['name']))
+            {
+                /*$file = $_FILES["files"]['tmp_name'];
+                list($width, $height) = getimagesize($file);
+
+                if($width > "180" || $height > "70") {
+                    echo "Error : image size must be 180 x 70 pixels.";
+                    exit;
+                }*/
+
+                //on verifi la taille de l'image
+                if($_FILES['img_url']['size']>=1000)
+                {
+                    $extensions_valides=Array('jpg', 'jpeg', 'png', 'JPG', 'JPEG', 'PNG');
+                    //la fonctions strrchr( $chaine,'.') renvoit l'extension avec le point
+                    //la fonction substtr($chaine,1) ingore la premiere caractere de la chaine
+                    //la fonction strtolower($chaine) renvoit la chaine en minuscule
+                    $extension_upload=strtolower(substr(strrchr($_FILES['img_url']['name'],'.'),1));
+                    //on verifi si l'extension_upload est valide
+
+                    if(in_array($extension_upload,$extensions_valides))
+                    {
+                        $token=md5(uniqid(rand(),true));
+                        $imgArticle="../../public/assets/img/vie_ass/{$token}.{$extension_upload}";
+                        // $chemin="blog_img/{$token}.{$extension_upload}";
+                        //on deplace du serveur au disque dur
+
+                        if(move_uploaded_file($_FILES['img_url']['tmp_name'],$imgArticle))
+                        {
+                            // La photo est la source
+                            if($extension_upload=='jpg' OR $extension_upload=='jpeg' OR $extension_upload=='JPG' OR $extension_upload=='JPEG')
+                            {$source = imagecreatefromjpeg($imgArticle);}
+                            else{$source = imagecreatefrompng($imgArticle);}
+                            $destination = imagecreatetruecolor(150, 150); // On crée la miniature vide
+
+                            // Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
+                            $largeur_source = imagesx($source);
+                            $hauteur_source = imagesy($source);
+                            $largeur_destination = imagesx($destination);
+                            $hauteur_destination = imagesy($destination);
+                            //$chemin0="blog_img/miniature/{$token}.{$extension_upload}";
+                            $imgArticleIcon="../../public/assets/img/vie_ass/miniature/{$token}.{$extension_upload}";
+                            // On crée la miniature
+                            imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hauteur_destination, $largeur_source, $hauteur_source);
+                            imagejpeg($destination,$imgArticleIcon);
+                        } else {
+                            $message .= "no deplace<br/>";
+                        }
+                    } else {
+                        $message .= "no extensions<br/>";
+                    }
+                } else {
+                    $message .= "no size<br/>";
+                }
+            }
             //save users
-            $connexion->insert('INSERT INTO vie_ass(libelle, description, created_at)
-                                               VALUES(?, ?, ?)',
-                array($_POST['lbl'], $_POST['desc'], time()));
+            $connexion->insert('INSERT INTO vie_ass(libelle, description, created_at, headers_id, img_url)
+                                               VALUES(?, ?, ?, ?, ?)',
+                array($_POST['lbl'], $_POST['desc'], time(), $_POST['header_id'], $imgArticle));
 
 
             $message .= 'success';
@@ -1192,9 +1249,66 @@ if(isset($_GET['updateVA'])) {
         }
         else {
 
-            $connexion->update('UPDATE vie_ass SET libelle=:libelle, description=:description, updated_at=:updated_at WHERE id=:id',
+            $imgArticle = '';
+            if(isset($_FILES['img_url']['name']) AND !empty($_FILES['img_url']['name']))
+            {
+                /*$file = $_FILES["files"]['tmp_name'];
+                list($width, $height) = getimagesize($file);
+
+                if($width > "180" || $height > "70") {
+                    echo "Error : image size must be 180 x 70 pixels.";
+                    exit;
+                }*/
+
+                //on verifi la taille de l'image
+                if($_FILES['img_url']['size']>=1000)
+                {
+                    $extensions_valides=Array('jpg', 'jpeg', 'png', 'JPG', 'JPEG', 'PNG');
+                    //la fonctions strrchr( $chaine,'.') renvoit l'extension avec le point
+                    //la fonction substtr($chaine,1) ingore la premiere caractere de la chaine
+                    //la fonction strtolower($chaine) renvoit la chaine en minuscule
+                    $extension_upload=strtolower(substr(strrchr($_FILES['img_url']['name'],'.'),1));
+                    //on verifi si l'extension_upload est valide
+
+                    if(in_array($extension_upload,$extensions_valides))
+                    {
+                        $token=md5(uniqid(rand(),true));
+                        $imgArticle="../../public/assets/img/vie_ass/{$token}.{$extension_upload}";
+                        // $chemin="blog_img/{$token}.{$extension_upload}";
+                        //on deplace du serveur au disque dur
+
+                        if(move_uploaded_file($_FILES['img_url']['tmp_name'],$imgArticle))
+                        {
+                            // La photo est la source
+                            if($extension_upload=='jpg' OR $extension_upload=='jpeg' OR $extension_upload=='JPG' OR $extension_upload=='JPEG')
+                            {$source = imagecreatefromjpeg($imgArticle);}
+                            else{$source = imagecreatefrompng($imgArticle);}
+                            $destination = imagecreatetruecolor(150, 150); // On crée la miniature vide
+
+                            // Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
+                            $largeur_source = imagesx($source);
+                            $hauteur_source = imagesy($source);
+                            $largeur_destination = imagesx($destination);
+                            $hauteur_destination = imagesy($destination);
+                            //$chemin0="blog_img/miniature/{$token}.{$extension_upload}";
+                            $imgArticleIcon="../../public/assets/img/vie_ass/miniature/{$token}.{$extension_upload}";
+                            // On crée la miniature
+                            imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hauteur_destination, $largeur_source, $hauteur_source);
+                            imagejpeg($destination,$imgArticleIcon);
+                        } else {
+                            $message .= "no deplace<br/>";
+                        }
+                    } else {
+                        $message .= "no extensions<br/>";
+                    }
+                } else {
+                    $message .= "no size<br/>";
+                }
+            }
+
+            $connexion->update('UPDATE vie_ass SET libelle=:libelle, description=:description, updated_at=:updated_at, img_url=:img_url, headers_id=:header_id WHERE id=:id',
                 array('libelle'=>$_POST['lbl'], 'description'=>$_POST['desc'],
-                    'updated_at'=>time(), 'id' => $_POST['hideID']));
+                    'updated_at'=>time(), 'img_url'=>$imgArticle, 'header_id'=>$_POST['header_id'], 'id' => $_POST['hideID']));
 
             $message .= 'success-update';
         }
@@ -1208,7 +1322,7 @@ DELETE VIE ASSOCIATIVE
 ========================================================================== */
 if(isset($_GET['delVA'])){
     App::getDB()->delete('DELETE FROM vie_ass WHERE id=:id', ['id' =>$_GET['delVA']]);
-    header('Location: ../module.php?name=vie_ass');
+    header('Location: ../body.php?id='.$_GET['id']);
 }
 
 

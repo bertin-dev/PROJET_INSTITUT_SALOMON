@@ -1678,3 +1678,65 @@ $(function() {
         });
     });
 });
+
+
+
+/* ==========================================================================
+GESTION DU PROGRAMME ASSOCIATIF
+========================================================================== */
+$(function() {
+    $('.form_via_ass2').on('submit', function (e) {
+        /* On empêche le navigateur de soumettre le formulaire*/
+        e.preventDefault();
+        $('.loader').show();
+        $('.currentSend').attr('value', 'Encours...');
+        var $form = $(this);
+        var formdata = (window.FormData) ? new FormData($form[0]) : null;
+        var data = (formdata !== null) ? formdata : $form.serialize();
+
+        $.ajax({
+            url: $form.attr('action'),
+            type: $form.attr('method'),
+            contentType: false, /* obligatoire pour de l'upload*/
+            processData: false, /* obligatoire pour de l'upload*/
+            dataType: 'html', /* selon le retour attendu*/
+            data:data,
+            success:function(data){
+                var cat = $('#rapportModiVA2, #rapportVA2');
+                if(data === 'success'){
+                    $('.loader').hide();
+                    cat.removeClass('alert-danger');
+                    cat.addClass('alert-success');
+                    $('.currentSend').attr('value', 'Ajouter');
+                    cat.html('un element a été ajouté avec succès.').show();
+                    setTimeout(function () {
+                        cat.html('un élement a été ajouté avec succès.').slideDown().hide();
+                        //$('body').load('module.php?name=formation', function() {});
+                        $(location).attr('href',"body.php?id=6");
+                    }, 3000);
+
+                } else if(data === 'success-update'){
+                    $('.loader').hide();
+                    cat.removeClass('alert-danger');
+                    cat.addClass('alert-info');
+                    $('.currentSend').attr('value', 'Ajouter');
+                    cat.html('Le programme a été Modifié avec succès').show();
+                    setTimeout(function () {
+                        cat.html('le programme a été Modifié avec succès').slideDown().hide();
+                        //$('body').load('module.php?name=formation', function() {});
+                        $(location).attr('href',"body.php?id=6");
+                    }, 3000);
+                }else {
+                    if(cat.hasClass('alert-success')){
+                        cat.removeClass('alert-success');
+                        cat.addClass('alert-danger');
+                    }
+                    cat.html(data).show();
+                    $('.loader').hide();
+                    $('.currentSend').attr('value', 'Ajouter');
+                }
+            }
+
+        });
+    });
+});
