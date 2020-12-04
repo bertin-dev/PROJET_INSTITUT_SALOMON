@@ -1,0 +1,13 @@
+{
+    "name": "vendor/PROJET GEPETROL SEGUROS",
+    "description": "Projet de conception d'une plateforme web pour l'entreprise gepetrol seguros sa",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "bertin.dev",
+            "email": "bertmoun@yahoo.fr"
+        }
+    ],
+    "require": {}
+}
