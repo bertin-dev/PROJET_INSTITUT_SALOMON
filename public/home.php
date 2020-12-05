@@ -223,7 +223,7 @@
                       <div class="list-group" id="myList">
                       <?php
                       foreach ($connexion->query('SELECT id, libelle, description FROM vie_ass
-                                                      WHERE headers_id=1') as $retour):
+                                                      WHERE headers_id='.$_ENV['id_page']) as $retour):
 
                           echo '<a href="#" class="list-group-item list-group-item-action">
                               <div class="d-flex w-100 justify-content-between">
