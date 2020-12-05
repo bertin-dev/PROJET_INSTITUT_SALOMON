@@ -1,29 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8385d80-414e-4851-bf3e-8475ca9b91c0" name="Default Changelist" comment="initial commit">
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/b5600d15ec0268f9e3d5f4947061caf2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/miniature/b5600d15ec0268f9e3d5f4947061caf2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/305ea14e90fcff92aa1b70aa044833fb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/955199ed932519a4d564d0fe8f3de7f0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/9cb5d1f3534c2983016950208e7fd3e3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/9eb665f1ab345ba83701ad85e9ffa6f1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/a38ad3f1001c252bb3cd0726997f6ecc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/ee395b647c635506b72546492a5d8bd5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/305ea14e90fcff92aa1b70aa044833fb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/955199ed932519a4d564d0fe8f3de7f0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/9cb5d1f3534c2983016950208e7fd3e3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/9eb665f1ab345ba83701ad85e9ffa6f1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/a38ad3f1001c252bb3cd0726997f6ecc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/ee395b647c635506b72546492a5d8bd5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/08ae901b-0c6c-4557-a35c-ae79f802a374.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/08ae901b-0c6c-4557-a35c-ae79f802a374.xml" afterDir="false" />
+    <list default="true" id="e8385d80-414e-4851-bf3e-8475ca9b91c0" name="Default Changelist" comment="Programmes associatifs terminé">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/allMyModal.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/allMyModal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/body.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/body.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin/controllers/traitement.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controllers/traitement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/controllers/traitement.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controllers/traitement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/va.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/va.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/module.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/module.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +71,7 @@
       <workItem from="1605558315538" duration="31305000" />
       <workItem from="1605874458182" duration="53451000" />
       <workItem from="1606110464064" duration="65891000" />
-      <workItem from="1606555147299" duration="86323000" />
+      <workItem from="1606555147299" duration="87418000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1607084401421</created>
@@ -98,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607084401421</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Programmes associatifs terminé">
+      <created>1607125789070</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607125789070</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,7 +96,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="Programmes associatifs terminé" />
+    <option name="LAST_COMMIT_MESSAGE" value="Programmes associatifs terminé" />
   </component>
   <component name="WindowStateProjectService">
     <state x="493" y="248" key="#Composer" timestamp="1605515947269">

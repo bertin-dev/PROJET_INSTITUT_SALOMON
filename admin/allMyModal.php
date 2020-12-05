@@ -943,7 +943,7 @@
                                 <div id="rapportVA" class="alert alert-danger" style="display:none;"></div>
                                 <form class="user form_via_ass" role="form"
                                       action="controllers/traitement.php?vie_ass=vie_ass" method="post">
-
+                                    <input type="hidden" name="header_id" value="<?= isset($_ENV['header_id'])? $_ENV['header_id'] : '1' ?>">
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="lbl" id="lbl"
                                                aria-describedby="lbl" placeholder="Libelle*">
@@ -998,7 +998,6 @@
                                 <div id="rapportIMG_ASS" class="alert alert-danger" style="display:none;"></div>
                                 <form class="user form_img_va" role="form"
                                       action="controllers/traitement.php?img_vie_ass=img_vie_ass" method="post">
-
                                     <div class="form-group">
                                         <label class="my-1 mr-2" for="img_url">Inserer une Image</label>
                                         <input type="file" name="img_url" id="img_url" required>

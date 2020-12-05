@@ -749,6 +749,7 @@ if(isset($_GET['id'])){
                 }
                 //Vie Associative
                 else if($_GET['name'] == 'vie_ass'){
+                    $_ENV['header_id'] = $_GET['id'];
                     ?>
                     <!-- Content Row -->
                     <div class="row">
@@ -764,7 +765,7 @@ if(isset($_GET['id'])){
                                     <form class="user form_via_ass" role="form"
                                           action="controllers/traitement.php?updateVA=update" method="post">
                                         <input type="hidden" name="hideID" value="<?=$mod->id;?>">
-
+                                        <input type="hidden" name="header_id" value="<?= isset($_ENV['header_id'])? $_ENV['header_id'] : '1' ?>">
                                         <div class="form-group">
                                             <input type="text" class="form-control" name="lbl" id="lbl"
                                                    aria-describedby="lbl" placeholder="Libelle*" value="<?=$mod->libelle;?>">
@@ -788,7 +789,7 @@ if(isset($_GET['id'])){
                                 <?php
                                 endforeach;
                             } else{
-                                $result = App::getDB()->rowCount('SELECT id FROM vie_ass');
+                                $result = App::getDB()->rowCount('SELECT id FROM vie_ass WHERE headers_id='.$_ENV['header_id'].' ');
 
                                 // Si une erreur survient
                                 if($result == 0 ) {
@@ -842,14 +843,15 @@ if(isset($_GET['id'])){
                                                     <tbody>
                                                     <?php
                                                     foreach (App::getDB()->query('SELECT * FROM vie_ass
-                                                                                ORDER BY id DESC') AS $mod):
+                                                                                           WHERE headers_id='.$_ENV['header_id'].' 
+                                                                                           ORDER BY id DESC') AS $mod):
 
                                                         echo '<tr>
                                                 <td title="ID">#'.$mod->id.'</td>
                                                 <td title="Libelle">'.$mod->libelle.'</td> 
                                                 <td title="Description">'.$mod->description.'</td>
-                                                <td title="Modifier" class="text-center"><a href="module.php?name=vie_ass&updateVA='.$mod->id.'"><i class="fas fa-fw fa-history"></i></a></td>
-                                                <td title="Supprimer" class="text-center"><a href="module.php?name=vie_ass&delVA='.$mod->id.'" onclick="deleteVA('.$mod->id.'); return false;"><i class="fas fa-fw fa-trash"></i></a></td>
+                                                <td title="Modifier" class="text-center"><a href="module.php?name=vie_ass&updateVA='.$mod->id.'&id='.$_ENV['header_id'].'"><i class="fas fa-fw fa-history"></i></a></td>
+                                                <td title="Supprimer" class="text-center"><a href="module.php?name=vie_ass&delVA='.$mod->id.'&id='.$_ENV['header_id'].'" onclick="deleteVA('.$mod->id.', '.$_ENV['header_id'].'); return false;"><i class="fas fa-fw fa-trash"></i></a></td>
                                             </tr>';
                                                     endforeach;
                                                     ?>
@@ -864,7 +866,7 @@ if(isset($_GET['id'])){
                             ?>
                         </div>
                         <script>
-                            function deleteVA(element){
+                            function deleteVA(element, element2){
                                 if(confirm("Êtes-vous sur de vouloir supprimer cet élement ?")){
                                     console.log('suppression effectué avec succès');
 
@@ -875,7 +877,7 @@ if(isset($_GET['id'])){
                                     cat.style.display = 'block';
 
                                     setTimeout(function () {
-                                        $(location).attr('href',"controllers/traitement.php?delVA="+ element);
+                                        $(location).attr('href',"controllers/traitement.php?delVA="+ element + "&id=" + element2);
                                     }, 1000);
 
 

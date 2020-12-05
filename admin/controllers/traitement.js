@@ -1404,7 +1404,7 @@ $(function() {
                     setTimeout(function () {
                         cat.html('un élement a été ajouté avec succès.').slideDown().hide();
                         //$('body').load('module.php?name=formation', function() {});
-                        $(location).attr('href',"module.php?name=vie_ass");
+                        $(location).attr('href',"module.php?name=vie_ass&id=1");
                     }, 3000);
 
                 } else if(data === 'success-update'){
@@ -1416,7 +1416,7 @@ $(function() {
                     setTimeout(function () {
                         cat.html('un élement a été Modifié avec succès').slideDown().hide();
                         //$('body').load('module.php?name=formation', function() {});
-                        $(location).attr('href',"module.php?name=vie_ass");
+                        $(location).attr('href',"module.php?name=vie_ass&id=1");
                     }, 3000);
                 }else {
                     if(cat.hasClass('alert-success')){
