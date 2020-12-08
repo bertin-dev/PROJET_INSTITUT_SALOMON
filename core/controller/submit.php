@@ -55,19 +55,15 @@ if(isset($_GET['comment'])) {
     $_POST['comment'] = htmlentities(nl2br((stripslashes(htmlspecialchars($_POST['comment'])))), ENT_QUOTES);
 
 
-    $nbre = $connexion->rowCount('SELECT id FROM users WHERE email="'.$_POST['email'].'"');
+    /*$nbre = $connexion->rowCount('SELECT id FROM users WHERE email="'.$_POST['email'].'"');
 
     if($nbre > 0){
         echo 'l\'adresse Email est déjà utilisé';
         exit;
     }
 
-    else {
+    else {*/
         extract($_POST);
-
-        //$newsletter = $connexion->prepare_request('SELECT id_newsletter FROM newsletter WHERE email_newsletter=:email', array('email'=>$_POST['email_visitor']));
-
-
 
         $connexion->insert('INSERT INTO users(first_name, email, user_type, created_at) 
                                                VALUES(?, ?, ?, ?)', array($_POST['name'], $_POST['email'], 'visiteur', time()));
@@ -80,7 +76,7 @@ if(isset($_GET['comment'])) {
                                                VALUES(?, ?, ?, ?)', array($_POST['comment'], time(), $max['max_id'], $_POST['post_id']));
 
         echo 'success';
-    }
+    //}
 
 }
 
@@ -119,23 +115,16 @@ if(isset($_GET['reply'])) {
     $_POST['item_comment1'] = htmlentities(nl2br((stripslashes(htmlspecialchars($_POST['item_comment1'])))), ENT_QUOTES);
 
 
-    $nbre = $connexion->rowCount('SELECT id FROM users WHERE email="'.$_POST['item_name1'].'"');
-
+    /*$nbre = $connexion->rowCount('SELECT id FROM users WHERE email="'.$_POST['item_name1'].'"');
     if($nbre > 0){
         echo 'l\'adresse Email est déjà utilisé';
         exit;
-    }
+    }*/
 
-    else {
+    //else {
         extract($_POST);
-
-        //$newsletter = $connexion->prepare_request('SELECT id_newsletter FROM newsletter WHERE email_newsletter=:email', array('email'=>$_POST['email_visitor']));
-
-
-
         $connexion->insert('INSERT INTO users(first_name, email, user_type, created_at) 
                                                VALUES(?, ?, ?, ?)', array($_POST['item_name1'], $_POST['item_email1'], 'visiteur', time()));
-
         //last user insert
         $max = $connexion->prepare_request('SELECT id AS max_id FROM users ORDER BY id DESC LIMIT 1', array());
 
@@ -144,7 +133,7 @@ if(isset($_GET['reply'])) {
                                                VALUES(?, ?, ?, ?)', array($_POST['item_comment1'], time(), $max['max_id'], $_GET['reply']));
 
         echo 'success';
-    }
+    //}
 
 }
 

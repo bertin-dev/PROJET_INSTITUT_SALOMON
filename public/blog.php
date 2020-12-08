@@ -21,7 +21,10 @@
     <!-- ======= Blog Section ======= -->
     <section id="blog" class="blog">
       <div class="container">
-
+          <div class="section-title2">
+              <h2><?= isset($_ENV['description']) ? $_ENV['description']:''; ?></h2>
+              <p><?= isset($_ENV['titre']) ? $_ENV['titre']:''; ?></p>
+          </div>
         <div class="row">
 
           <div id="articles" class="col-lg-8 entries">
@@ -32,9 +35,14 @@
               $premierMessageAafficher = ($pages - 1) * $nombreDeMessagesParPage;
 
               $post = App::getDB()->compteur_start_end('SELECT posts.id AS id_posts, title, content, post_type, likes, dislike, favourited, posts.created_at,
-                                                            user_id, category_id, images.id AS id_images, url_miniature, url FROM posts
+                                                            user_id, category_id, images.id AS id_images, url_miniature, url,
+                                                     u.first_name, u.last_name, u.linkedin, u.instagram, u.facebook, u.twitter,
+                                                     u.email, u.avatar, u.profession
+                                                     FROM posts
                                                      INNER JOIN images
                                                      ON posts.id=images.post_id
+                                                     INNER JOIN users u 
+                                                     ON posts.user_id = u.id
                                                      ORDER BY posts.id DESC LIMIT :offset , :limit');
               $post->bindParam(':offset', $premierMessageAafficher , PDO::PARAM_INT);
               $post->bindParam(':limit', $nombreDeMessagesParPage, PDO::PARAM_INT);
@@ -57,8 +65,10 @@
 
                       <div class="entry-meta">
                           <ul>
-                              <li class="d-flex align-items-center"><i class="icofont-user"></i> <a data="articles=<?=$post_item['id_posts'];?>" href="#" onclick="return false;">John Doe</a></li>
-                              <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a data="articles=<?=$post_item['id_posts'];?>" href="#" onclick="return false;"><time datetime="2020-01-01"><?=date('F j, Y', strtotime($post_item['created_at']));?></time></a></li>
+                              <li class="d-flex align-items-center"><i class="icofont-user"></i> <a data="articles=<?=$post_item['id_posts'];?>" href="#" onclick="return false;"><?=$post_item['first_name'] . ' ' .$post_item['last_name'];?></a></li>
+                              <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a data="articles=<?=$post_item['id_posts'];?>" href="#" onclick="return false;">
+                                      <time class="timeago" datetime="<?=date('c', strtotime($post_item['created_at']));?>"></time>
+                                  </a></li>
                               <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a data="articles=<?=$post_item['id_posts'];?>" href="#" onclick="return false;">
                                       <?php
                                       $result = App::getDB()->rowCount('SELECT comments.id AS id_comments, comments.content, comments.created_at, users.first_name, users.last_name FROM posts
@@ -91,53 +101,16 @@
 
               <?php
               }
-              ?>
 
-            <article class="entry" data-aos="fade-up">
-
-              <div class="entry-img">
-                <img src="assets/img/blog-4.jpg" alt="" class="img-fluid">
-              </div>
-
-              <h2 class="entry-title">
-                <a href="blog-single.php">Non rem rerum nam cum quo minus. Dolor distinctio deleniti explicabo eius exercitationem. Veniam eius velit ab ipsa quidem rem.</a>
-              </h2>
-
-              <div class="entry-meta">
-                <ul>
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.php">John Doe</a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.php"><time datetime="2020-01-01">Jan 1, 2020</time></a></li>
-                  <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="blog-single.php">12 Comments</a></li>
-                </ul>
-              </div>
-
-              <div class="entry-content">
-                <p>
-                  Aspernatur rerum perferendis et sint. Voluptates cupiditate voluptas atque quae. Rem veritatis rerum enim et autem. Saepe atque cum eligendi eaque iste omnis a qui.
-                  Quia sed sunt. Ea asperiores expedita et et delectus voluptates rerum. Id saepe ut itaque quod qui voluptas nobis porro rerum. Quam quia nesciunt qui aut est non omnis. Inventore occaecati et quaerat magni itaque nam voluptas. Voluptatem ducimus sint id earum ut nesciunt sed corrupti nemo.
-                </p>
-                <div class="read-more">
-                  <a href="blog-single.php">Read More</a>
-                </div>
-              </div>
-
-            </article><!-- End blog entry -->
-
-            <!--<div class="blog-pagination">
-              <ul class="justify-content-center">
-                <li class="disabled"><i class="icofont-rounded-left"></i></li>
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#"><i class="icofont-rounded-right"></i></a></li>
-              </ul>
-            </div>-->
-
-              <?php
               $totalDesMessages = App::getDB()->rowCount('SELECT posts.id AS id_posts, title, content, post_type, likes, dislike, favourited, posts.created_at,
-                                                            user_id, category_id, images.id AS id_images, url_miniature, url FROM posts
+                                                            user_id, category_id, images.id AS id_images, url_miniature, url,
+                                                     u.first_name, u.last_name, u.linkedin, u.instagram, u.facebook, u.twitter,
+                                                     u.email, u.avatar, u.profession
+                                                     FROM posts
                                                      INNER JOIN images
                                                      ON posts.id=images.post_id
+                                                     INNER JOIN users u 
+                                                     ON posts.user_id = u.id
                                                      ORDER BY posts.id DESC');
               // On calcule le nombre de pages à créer
               $nombreDePages  = ceil($totalDesMessages / $nombreDeMessagesParPage);

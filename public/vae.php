@@ -21,6 +21,11 @@
     <section id="about-us" class="about-us">
         <div class="container">
 
+            <div class="section-title2">
+                <h2><?= isset($_ENV['description']) ? $_ENV['description']:''; ?></h2>
+                <p><?= isset($_ENV['titre']) ? $_ENV['titre']:''; ?></p>
+            </div>
+
             <div class="row no-gutters">
                 <?php
                 $connexion = \App::getDB();

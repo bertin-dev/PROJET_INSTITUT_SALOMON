@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8385d80-414e-4851-bf3e-8475ca9b91c0" name="Default Changelist" comment="modification backend vie associative">
+    <list default="true" id="e8385d80-414e-4851-bf3e-8475ca9b91c0" name="Default Changelist" comment="frontend programmes associatifs terminé">
+      <change afterPath="$PROJECT_DIR$/public/assets/img/profil.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/profil3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/js/jquery.timego.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PROJET INSTITUT SALOMON.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PROJET INSTITUT SALOMON.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/va.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/va.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/controller/submit.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller/submit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/controller/verification.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller/verification.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/blog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/blog_sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/blog_sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/langues.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/langues.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/programmes.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/programmes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/template/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/template/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/vae.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/vae.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,11 +70,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/assets/js" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\PROJET INSTITUT SALOMON\public\assets\js" />
       <recent name="C:\xampp\htdocs\PROJET INSTITUT SALOMON\public" />
     </key>
   </component>
@@ -70,7 +92,10 @@
       <workItem from="1605558315538" duration="31305000" />
       <workItem from="1605874458182" duration="53451000" />
       <workItem from="1606110464064" duration="65891000" />
-      <workItem from="1606555147299" duration="88969000" />
+      <workItem from="1606555147299" duration="96314000" />
+      <workItem from="1607329392946" duration="19000000" />
+      <workItem from="1607357684930" duration="499000" />
+      <workItem from="1607359827697" duration="30223000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1607084401421</created>
@@ -93,18 +118,38 @@
       <option name="project" value="LOCAL" />
       <updated>1607127172708</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="frontend programmes associatifs terminé">
+      <created>1607128457167</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607128457167</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="initial commit" />
     <MESSAGE value="Programmes associatifs terminé" />
     <MESSAGE value="modification backend vie associative" />
-    <option name="LAST_COMMIT_MESSAGE" value="modification backend vie associative" />
+    <MESSAGE value="frontend programmes associatifs terminé" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontend programmes associatifs terminé" />
   </component>
   <component name="WindowStateProjectService">
     <state x="493" y="248" key="#Composer" timestamp="1605515947269">
@@ -145,9 +190,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="275" y="101" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1606724432033" />
-    <state x="339" y="165" key="run.anything.popup" timestamp="1606979266269">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="1705" y="165" key="run.anything.popup" timestamp="1607425319051">
+      <screen x="1366" y="0" width="1366" height="738" />
     </state>
+    <state x="1705" y="165" key="run.anything.popup/0.0.1366.738/1366.0.1366.738@1366.0.1366.738" timestamp="1607425319051" />
     <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1606979266269" />
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1606037647764">
       <screen x="0" y="0" width="1366" height="738" />

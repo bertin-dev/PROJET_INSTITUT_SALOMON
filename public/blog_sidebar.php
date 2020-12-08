@@ -41,8 +41,8 @@
 
         echo '<div class="post-item clearfix">
             <img src="'.str_replace('../../public/', '', $recent_post->url).'" alt="'.$recent_post->title.'" title="'.$recent_post->title.'">
-            <h4><a onclick="return false;" data="articles='.$recent_post->id_posts.'" href="#" class="link_articles">'.strtolower($recent_post->title).'</a></h4>
-            <time datetime="2020-01-01">'.date('F j, Y', strtotime($recent_post->created_at)).'</time>
+            <h4><a onclick="return false;" data="articles='.$recent_post->id_posts.'" href="#" class="link_articles">'.strtolower($recent_post->title).'</a></h4>';
+            echo '<time class="timeago" datetime="'.date('c', strtotime($recent_post->created_at)).'"></time>
         </div>';
 
         endforeach;

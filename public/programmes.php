@@ -20,10 +20,12 @@
 
       <!-- ======= Programmes de formation ======= -->
     <section id="pricing" class="pricing" style="padding-top: 10px;padding-bottom: 10px">
-          <div class="sp-module  jd-title">
-              <h3 class="sp-module-title">NOS FORMATIONS PROFESSIONNELLES</h3>
-          </div>
           <div class="container">
+
+              <div class="section-title2">
+                  <h2><?= isset($_ENV['titre']) ? $_ENV['titre']:''; ?></h2>
+                  <p>de formations</p>
+              </div>
               <div class="row">
                   <?php
                   $connexion = \App::getDB();

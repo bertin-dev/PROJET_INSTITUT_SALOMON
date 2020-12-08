@@ -242,10 +242,9 @@ $(function () {
   //Commentaires
 
   var myArticles =  $('#articles');
-  var cat = $('#rapport_comment');
 
   $('#form_comment input, #form_comment textarea').focus(function () {
-    cat.fadeOut(800);
+    $('.rapport_comment').fadeOut(800);
   });
 
   myArticles.on('keyup', '#name', function () {
@@ -423,8 +422,7 @@ $(function () {
     var name = $('#name').val(), email = $('#email').val(), comment = $('#comment').val();
 
     if (name == '' || email == '' || comment == '') {
-      //alert("Veuillez remplir tous les champs");
-      cat.html("Veuillez remplir tous les champs").show();
+      $('.rapport_comment').html("Veuillez remplir tous les champs").show();
     }
     else {
       var $form = $(this);
@@ -444,7 +442,7 @@ $(function () {
         success: function (data) {
           if(data != 'success'){
 
-            cat.html(data).show();
+            $('.rapport_comment').html(data).show();
             $('.loader').hide();
             $('.currentSend').html('Commenter');
 
@@ -452,22 +450,21 @@ $(function () {
           else {
 
             $('.loader').hide();
-            cat.removeClass('alert-danger');
-            cat.addClass('alert-success');
+            $('.rapport_comment').removeClass('alert-danger');
+            $('.rapport_comment').addClass('alert-success');
             $('.currentSend').html('Commenter');
-            cat.html('Commentaire ajouté avec succès.').show();
+            $('.rapport_comment').html('Commentaire ajouté avec succès.').show();
 
-            /* setTimeout(function () {
-                 $('#output_visitor').fadeOut().hide();
-
-             }, 7000);*/
+            setTimeout(function () {
+                load_comments(PostId);
+             }, 2000);
           }
         },
         error: function(){
           console.log('Erreur de Chargement des commentaires');
         },
         complete: function () {
-          load_comments(PostId);
+          //load_comments(PostId);
         }
 
       });
@@ -525,7 +522,6 @@ $(function () {
       }
     });
   }
-
 
   /*myArticles.on('click', 'h5 a', function (e) {
     e.preventDefault();
@@ -724,11 +720,11 @@ $(function () {
 
   }
 
-
   myArticles.on('submit', 'form', function () {
 
     if(item_name==='' || item_email==='' || item_comment===''){
-      alert("Veuillez remplir un ou plusieurs champs.");
+      //alert("Veuillez remplir un ou plusieurs champs.");
+      $('.rapport_response_comment').html("Veuillez remplir tous les champs").fadeIn(400).show();
     } else {
 
       var item_name1 = encodeURIComponent(item_name.val());
@@ -745,31 +741,39 @@ $(function () {
           $('.currentSend').html('Encours...');
         },
         success: function (data) {
+
           if(data != 'success'){
 
-            alert(data);
+            $('.rapport_response_comment').html(data).show();
             $('.loader').hide();
             $('.currentSend').html('Commenter');
+
           }
           else {
 
             $('.loader').hide();
+            $('.rapport_response_comment').removeClass('alert-danger');
+            $('.rapport_response_comment').addClass('alert-success');
+            $('.currentSend').html('Commenter');
+            $('.rapport_response_comment').html('Commentaire ajouté avec succès.').show();
 
+            setTimeout(function () {
+              load_comments(PostId);
+            }, 2000);
           }
+
         },
         error: function(){
           console.log('Erreur de Chargement des commentaires');
         },
         complete: function () {
-          load_comments(PostId);
+          //load_comments(PostId);
         }
 
       });
     }
 
   });
-
-
 
 
   //chargement dynamique des Archives
@@ -1014,7 +1018,7 @@ $(document).ready(function() {
 
 //slider pour les partenaires
 $(document).ready(function(){
-  $('.customer-logos').click({
+  $('.customer-logos').slick({
     slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,

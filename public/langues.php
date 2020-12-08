@@ -26,6 +26,11 @@
                   <p><strong>(gratuit pour les étudiants)</strong></p>
               </div>
 
+              <div class="section-title2">
+                  <h2><?= isset($_ENV['description']) ? $_ENV['description']:''; ?></h2>
+                  <p>gratuit pour les étudiants</p>
+              </div>
+
               <div class="row">
                   <div class="col-lg-7 ml-auto" data-aos="fade-left" data-aos-delay="100">
                       <div class="tab-content">

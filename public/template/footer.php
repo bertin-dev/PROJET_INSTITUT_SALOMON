@@ -91,6 +91,7 @@
 <div id="preloader"></div>
 
 <!-- Vendor JS Files -->
+
 <script src="assets/vendor/jquery/jquery.min.js"></script>
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
@@ -104,3 +105,29 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+
+<script src="assets/js/jquery.timego.js"></script>
+<script>
+    // French
+    jQuery.timeago.settings.strings = {
+        // environ ~= about, it's optional
+        prefixAgo: "il y a",
+        prefixFromNow: "d'ici",
+        seconds: "moins d'une minute",
+        minute: "une minute",
+        minutes: "%d minutes",
+        hour: "une heure",
+        hours: "%d heures",
+        day: "un jour",
+        days: "%d jours",
+        month: "un mois",
+        months: "%d mois",
+        year: "un an",
+        years: "%d ans"
+    };
+
+
+    jQuery(document).ready(function() {
+        $("time.timeago").timeago();
+    });
+</script>
