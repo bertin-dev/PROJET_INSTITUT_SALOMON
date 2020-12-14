@@ -1,4 +1,7 @@
-<?php require_once('page_number.php'); ?>
+<?php require_once('page_number.php');
+define('MIN_CHARACTER1', 0);
+define('MAX_CHARACTER1', 20);
+?>
 
 
   <!-- ======= Hero Section ======= -->
@@ -104,6 +107,70 @@
       </div>
       </section>
 
+
+      <!-- ======= Pricing Section ======= -->
+      <div id="pricing" class="pricing-area area-padding">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                      <div class="section-headline text-center">
+                          <h2>Pricing Table</h2>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="pri_table_list">
+                          <h3>basic <br /> <span>$80 / month</span></h3>
+                          <ol>
+                              <li class="check">Online system</li>
+                              <li class="check cross">Full access</li>
+                              <li class="check">Free apps</li>
+                              <li class="check">Multiple slider</li>
+                              <li class="check cross">Free domin</li>
+                              <li class="check cross">Support unlimited</li>
+                              <li class="check">Payment online</li>
+                              <li class="check cross">Cash back</li>
+                          </ol>
+                          <button>sign up now</button>
+                      </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="pri_table_list active">
+                          <span class="saleon">top sale</span>
+                          <h3>standard <br /> <span>$110 / month</span></h3>
+                          <ol>
+                              <li class="check">Online system</li>
+                              <li class="check">Full access</li>
+                              <li class="check">Free apps</li>
+                              <li class="check">Multiple slider</li>
+                              <li class="check cross">Free domin</li>
+                              <li class="check">Support unlimited</li>
+                              <li class="check">Payment online</li>
+                              <li class="check cross">Cash back</li>
+                          </ol>
+                          <button>sign up now</button>
+                      </div>
+                  </div>
+                  <div class="col-md-4 col-sm-4 col-xs-12">
+                      <div class="pri_table_list">
+                          <h3>premium <br /> <span>$150 / month</span></h3>
+                          <ol>
+                              <li class="check">Online system</li>
+                              <li class="check">Full access</li>
+                              <li class="check">Free apps</li>
+                              <li class="check">Multiple slider</li>
+                              <li class="check">Free domin</li>
+                              <li class="check">Support unlimited</li>
+                              <li class="check">Payment online</li>
+                              <li class="check">Cash back</li>
+                          </ol>
+                          <button>sign up now</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div><!-- End Pricing Section -->
 
 
       <!-- ======= Programmes de formation ======= -->
@@ -333,55 +400,125 @@
       </section><!-- End Features Section -->
 
 
-      <!--<section>
-          <div class="sp-module  jd-title">
-              <h3 class="sp-module-title">EQUIPE PEDAGOGIQUE</h3>
-          </div>
-          <div class="container">
-              <div class="row">
+      <!-- ======= Popular Courses Section ======= -->
+      <section id="popular-courses" class="courses">
+          <div class="container" data-aos="fade-up">
 
-                  <div class="col-lg-3">
-                      <div class="card">
-                          <img src="assets/img/comments-3.jpg" alt="Avatar" style="width:100%">
-                          <div class="container">
-                              <h4><b>John Doe</b></h4>
-                              <p>Architect & Engineer</p>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-lg-3">
-                      <div class="card">
-                          <img src="assets/img/comments-2.jpg" alt="Avatar" style="width:100%">
-                          <div class="container">
-                              <h4><b>John Doe</b></h4>
-                              <p>Architect & Engineer</p>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-lg-3">
-                      <div class="card">
-                          <img src="assets/img/comments-1.jpg" alt="Avatar" style="width:100%">
-                          <div class="container">
-                              <h4><b>John Doe</b></h4>
-                              <p>Architect & Engineer</p>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col-lg-3">
-                      <div class="card">
-                          <img src="assets/img/blog-author.jpg" alt="Avatar" style="width:100%">
-                          <div class="container">
-                              <h4><b>John Doe</b></h4>
-                              <p>Architect & Engineer</p>
-                          </div>
-                      </div>
-                  </div>
+              <div class="sp-module  jd-title">
+                  <h3 class="sp-module-title">ACTUALITE <strong>INSTITUT SALOMON</strong></h3>
               </div>
+
+              <div class="row" data-aos="zoom-in" data-aos-delay="100">
+
+                  <?php
+                  foreach (App::getDB()->query('SELECT posts.id AS id_posts, posts.title AS post_title, content, post_type, likes, dislike, favourited, posts.created_at,
+                                                            user_id, category_id, images.id AS id_images, url_miniature, url, u.first_name, u.last_name, u.avatar, c.title AS cat_title
+                                                        FROM posts
+                                                        INNER JOIN images
+                                                        ON posts.id=images.post_id
+                                                        INNER JOIN categories c 
+                                                        ON posts.category_id = c.id
+                                                        INNER JOIN users u 
+                                                        ON posts.user_id = u.id
+                                                        ORDER BY posts.id DESC LIMIT 3') as $retour):
+
+                      echo '<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                      <div class="course-item">
+                          <img src="' . str_replace('../../public/', '', $retour->url) . '" alt="' . $retour->post_title . '" title="' . $retour->post_title . '" class="img-fluid">
+                          <div class="course-content">
+                              <div class="d-flex justify-content-between align-items-center mb-3">
+                                  <h4>'.$retour->cat_title.'</h4>
+                                  <p class="text-info"><time class="timeago" datetime="' . date('c', strtotime($retour->created_at)) . '">' . date('j F Y à H:m', strtotime($retour->created_at)) . '</time></p>
+                              </div>
+
+                              <h3><a href="course-details.html">'.$retour->post_title.'</a></h3>
+                              <p>'. substr(htmlspecialchars_decode($retour->content), MIN_CHARACTER1, MAX_CHARACTER1).'</p>
+                              <a href="index.php?id_page=8&posts_id='.$retour->id_posts.'" title="'.$retour->post_title.'">Lire la suite</a>
+                              
+                              <div class="trainer d-flex justify-content-between align-items-center">
+                                  <div class="trainer-profile d-flex align-items-center">';
+                             $img = !empty($retour->avatar) ? str_replace('../../public/', ' ', $retour->avatar) : 'assets/img/profil.png';
+                                      echo '<img src="'.$img.'" title="'.$retour->first_name.'" class="img-fluid">
+                                      <span>'.$retour->first_name.'</span>
+                                  </div>
+                                  <div class="trainer-rank d-flex align-items-center">
+                                      <i class="icofont-comment"></i>&nbsp;';
+
+                      $result = App::getDB()->rowCount('SELECT comments.id AS id_comments, comments.content, comments.created_at, users.first_name, users.last_name FROM posts
+                            INNER JOIN comments
+                            ON posts.id=comments.post_id
+                            INNER JOIN users
+                            ON users.id=comments.user_id
+                            WHERE posts.id=' . $retour->id_posts);
+
+                      echo $result;
+
+                      echo '&nbsp;&nbsp;
+                                    
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>';
+                  endforeach;
+                  ?>
+
+                  <!--  <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+                       <div class="course-item">
+                           <img src="assets/img/course-2.jpg" class="img-fluid" alt="...">
+                           <div class="course-content">
+                               <div class="d-flex justify-content-between align-items-center mb-3">
+                                   <h4>Marketing</h4>
+                                   <p class="price">$250</p>
+                               </div>
+
+                               <h3><a href="course-details.html">Search Engine Optimization</a></h3>
+                               <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                               <div class="trainer d-flex justify-content-between align-items-center">
+                                   <div class="trainer-profile d-flex align-items-center">
+                                       <img src="assets/img/trainers/trainer-2.jpg" class="img-fluid" alt="">
+                                       <span>Lana</span>
+                                   </div>
+                                   <div class="trainer-rank d-flex align-items-center">
+                                       <i class="bx bx-user"></i>&nbsp;35
+                                       &nbsp;&nbsp;
+                                       <i class="bx bx-heart"></i>&nbsp;42
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+                       <div class="course-item">
+                           <img src="assets/img/course-3.jpg" class="img-fluid" alt="...">
+                           <div class="course-content">
+                               <div class="d-flex justify-content-between align-items-center mb-3">
+                                   <h4>Content</h4>
+                                   <p class="price">$180</p>
+                               </div>
+
+                               <h3><a href="course-details.html">Copywriting</a></h3>
+                               <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
+                               <div class="trainer d-flex justify-content-between align-items-center">
+                                   <div class="trainer-profile d-flex align-items-center">
+                                       <img src="assets/img/trainers/trainer-3.jpg" class="img-fluid" alt="">
+                                       <span>Brandon</span>
+                                   </div>
+                                   <div class="trainer-rank d-flex align-items-center">
+                                       <i class="bx bx-user"></i>&nbsp;20
+                                       &nbsp;&nbsp;
+                                       <i class="bx bx-heart"></i>&nbsp;85
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div> -->
+
+              </div>
+
           </div>
-      </section>-->
+      </section><!-- End Popular Courses Section -->
 
       <!-- ======= Our Team Section ======= -->
     <section id="team" class="team" style="padding-top: 10px;padding-bottom: 10px">

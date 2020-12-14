@@ -37,7 +37,7 @@
                                                             user_id, category_id, images.id AS id_images, url_miniature, url FROM posts
                                                      INNER JOIN images
                                                      ON posts.id=images.post_id
-                                                     ORDER BY posts.id DESC LIMIT 3') AS $recent_post):
+                                                     ORDER BY posts.id DESC LIMIT 4') AS $recent_post):
 
         echo '<div class="post-item clearfix">
             <img src="'.str_replace('../../public/', '', $recent_post->url).'" alt="'.$recent_post->title.'" title="'.$recent_post->title.'">
@@ -53,18 +53,11 @@
     <h3 class="sidebar-title">Tags</h3>
     <div class="sidebar-item tags">
         <ul>
-            <li><a href="#">App</a></li>
-            <li><a href="#">IT</a></li>
-            <li><a href="#">Business</a></li>
-            <li><a href="#">Business</a></li>
-            <li><a href="#">Mac</a></li>
-            <li><a href="#">Design</a></li>
-            <li><a href="#">Office</a></li>
-            <li><a href="#">Creative</a></li>
-            <li><a href="#">Studio</a></li>
-            <li><a href="#">Smart</a></li>
-            <li><a href="#">Tips</a></li>
-            <li><a href="#">Marketing</a></li>
+            <?php
+            foreach (App::getDB()->query('SELECT * FROM tags') AS $tag):
+                echo '<li><a href="#" onclick="return false;">'.$tag->title.'</a></li>';
+            endforeach;
+            ?>
         </ul>
 
     </div><!-- End sidebar tags-->

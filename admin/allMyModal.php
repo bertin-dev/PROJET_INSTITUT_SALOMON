@@ -1353,3 +1353,66 @@
         </div>
     </div>
 </div>
+
+
+
+
+<!-- ajouter apropos-->
+<div class="modal fade" id="apropos" tabindex="-1" role="application" aria-labelledby="apropos"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Apropos</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="justify-content-center">
+
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+
+                            <div class="p-5">
+                                <div id="rapportA2" class="alert alert-danger" style="display:none;"></div>
+                                <form class="user form_A" role="form"
+                                      action="controllers/traitement.php?apropos=apropos" method="post" enctype="multipart/form-data">
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="libelle" id="libelle"
+                                               aria-describedby="libelle" placeholder="Libelle*" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="description"></label>
+                                        <textarea name="description" class="form-control" id="description" aria-describedby="description" cols="30" rows="5" placeholder="Description Apropos*"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="avatar">Image descriptive</label>
+                                        <input type="file" class="form-control" name="avatar" id="avatar"
+                                               aria-describedby="avatar" placeholder="avatar*">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary btn-user btn-block currentSend"
+                                               value="Ajouter"/>
+                                        <center><img src="img/loader.gif" class="loader" style="display:none;"></center>
+                                    </div>
+
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

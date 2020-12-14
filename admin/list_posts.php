@@ -47,7 +47,7 @@ require '../app/config/Config_Server.php';
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Cards</h1>
+            <h1 class="h3 mb-0 text-gray-800">Blog</h1>
           </div>
 
           <div class="row">

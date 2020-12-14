@@ -21,6 +21,9 @@ const categorie = "Categorie";
 const delete_msg = " Supprimé avec succès.";
 const tag = "Tag";
 const update_msg = " Modifié avec succès."
+const article = " Article"
+const result_article = "Veuillez inserer un titre à votre article"
+const success_msg_article = " publié avec succès.";
 
 /* ==========================================================================
 GESTION DE L AJOUT DU LOGO, TITRE, ICÖNE
@@ -1725,6 +1728,226 @@ $(function() {
                         cat.html('le programme a été Modifié avec succès').slideDown().hide();
                         //$('body').load('module.php?name=formation', function() {});
                         $(location).attr('href',"body.php?id=6");
+                    }, 3000);
+                }else {
+                    if(cat.hasClass('alert-success')){
+                        cat.removeClass('alert-success');
+                        cat.addClass('alert-danger');
+                    }
+                    cat.html(data).show();
+                    $('.loader').hide();
+                    $('.currentSend').attr('value', 'Ajouter');
+                }
+            }
+
+        });
+    });
+});
+
+
+
+/* ==========================================================================
+GESTION DU BB CODE DE L'AJOUT DES ARTICLES
+========================================================================== */
+$(document).ready(function () {
+    $('#desc_article1').wysiwyg({
+
+    });
+});
+
+
+/* ==========================================================================
+MODIFIER ARTICLE
+========================================================================== */
+
+$(function() {
+
+    $('#form_article1 input').focus(function () {
+        $('.rapport1').fadeOut(800);
+    });
+    $('#form_article1').on('submit', function (e) {
+        /* On empêche le navigateur de soumettre le formulaire*/
+        e.preventDefault();
+        //alert($('#editor').val());
+        $('.loader').show();
+        $('.currentSend').attr('value', 'En cours...');
+        var $form = $(this);
+        var formdata = (window.FormData) ? new FormData($form[0]) : null;
+        var data = (formdata !== null) ? formdata : $form.serialize();
+
+        $.ajax({
+            url: 'controllers/traitement.php?update_article=article',
+            type: 'post',
+            contentType: false, /* obligatoire pour de l'upload*/
+            processData: false, /* obligatoire pour de l'upload*/
+            dataType: 'html', /* selon le retour attendu*/
+            data: data,
+            success:function(data){
+                var cat = $('.rapport1');
+                if(data === 'success'){
+                    $('.loader').hide();
+                    cat.removeClass('alert-danger');
+                    cat.addClass('alert-success');
+                    $('.currentSend').attr('value', 'Publier');
+                    cat.html(article + ' ' + success_msg_article).show();
+                    setTimeout(function () {
+                        cat.html(article +' ' + success_msg_article).slideDown().hide();
+                        $('body').load('body.php?id=8', function() {
+                        });
+                    }, 3000);
+
+                } else {
+                    if(cat.hasClass('alert-success')){
+                        cat.removeClass('alert-success');
+                        cat.addClass('alert-danger');
+                    }
+                    cat.html(data).show();
+                    $('.loader').hide();
+                    $('.currentSend').attr('value', 'Publier');
+                }
+            }
+
+        });
+    });
+});
+
+/* ==========================================================================
+UPLOAD IMAGE ARTICLE
+========================================================================== */
+$(document).ready( function() {
+    $(document).on('change', '.btn-file :file', function() {
+        var input = $(this),
+            label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+        input.trigger('fileselect', [label]);
+    });
+
+    $('.btn-file :file').on('fileselect', function(event, label) {
+
+        var input = $(this).parents('.input-group').find(':text'),
+            log = label;
+
+        if( input.length ) {
+            input.val(log);
+        } else {
+            if( log ) alert(log);
+        }
+
+    });
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img-upload1').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imgInp1").change(function(){
+        readURL(this);
+    });
+});
+
+
+
+
+
+/* ==========================================================================
+MODIFIER NEWSLETTER ET CONTACT
+========================================================================== */
+$(function() {
+    $('.form_new').on('submit', function (e) {
+        /* On empêche le navigateur de soumettre le formulaire*/
+        e.preventDefault();
+        $('.loader').show();
+        $('.currentSend').attr('value', 'Encours...');
+        var $form = $(this);
+        var formdata = (window.FormData) ? new FormData($form[0]) : null;
+        var data = (formdata !== null) ? formdata : $form.serialize();
+
+        $.ajax({
+            url: $form.attr('action'),
+            type: $form.attr('method'),
+            contentType: false, /* obligatoire pour de l'upload*/
+            processData: false, /* obligatoire pour de l'upload*/
+            dataType: 'html', /* selon le retour attendu*/
+            data:data,
+            success:function(data){
+                var cat = $('#rapportN');
+                 if(data === 'success-update'){
+                    $('.loader').hide();
+                    cat.removeClass('alert-danger');
+                    cat.addClass('alert-info');
+                    $('.currentSend').attr('value', 'Ajouter');
+                    cat.html('cet élément a été Modifié avec succès').show();
+                    setTimeout(function () {
+                        cat.html('cet élément a été Modifié avec succès').slideDown().hide();
+                        //$('body').load('module.php?name=formation', function() {});
+                        $(location).attr('href',"body.php?id=10");
+                    }, 2000);
+                }else {
+                    if(cat.hasClass('alert-success')){
+                        cat.removeClass('alert-success');
+                        cat.addClass('alert-danger');
+                    }
+                    cat.html(data).show();
+                    $('.loader').hide();
+                    $('.currentSend').attr('value', 'Ajouter');
+                }
+            }
+
+        });
+    });
+});
+
+
+
+/* ==========================================================================
+GESTION APROPOS
+========================================================================== */
+$(function() {
+    $('.form_A').on('submit', function (e) {
+        /* On empêche le navigateur de soumettre le formulaire*/
+        e.preventDefault();
+        $('.loader').show();
+        $('.currentSend').attr('value', 'Encours...');
+        var $form = $(this);
+        var formdata = (window.FormData) ? new FormData($form[0]) : null;
+        var data = (formdata !== null) ? formdata : $form.serialize();
+
+        $.ajax({
+            url: $form.attr('action'),
+            type: $form.attr('method'),
+            contentType: false, /* obligatoire pour de l'upload*/
+            processData: false, /* obligatoire pour de l'upload*/
+            dataType: 'html', /* selon le retour attendu*/
+            data:data,
+            success:function(data){
+                var cat = $('#rapportA, #rapportA2');
+                if(data === 'success'){
+                    $('.loader').hide();
+                    cat.removeClass('alert-danger');
+                    cat.addClass('alert-success');
+                    $('.currentSend').attr('value', 'Ajouter');
+                    cat.html('Apropos ajouté avec succès.').show();
+                    setTimeout(function () {
+                        cat.html('Apropos ajouté avec succès.').slideDown().hide();
+                        //$('body').load('module.php?name=formation', function() {});
+                        $(location).attr('href',"body.php?id=7");
+                    }, 3000);
+
+                } else if(data === 'success-update'){
+                    $('.loader').hide();
+                    cat.removeClass('alert-danger');
+                    cat.addClass('alert-info');
+                    $('.currentSend').attr('value', 'Ajouter');
+                    cat.html('Apropos Modifié avec succès').show();
+                    setTimeout(function () {
+                        cat.html('Apropos Modifié avec succès').slideDown().hide();
+                        $('body').load('body.php?id=7', function() {
+                        });
                     }, 3000);
                 }else {
                     if(cat.hasClass('alert-success')){

@@ -115,7 +115,7 @@ if (isset($_POST['articles_click'])) {
 
               <div class="entry-meta">
                 <ul>
-                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a data="articles=' . $post->id_posts . '" href="#" onclick="return false;">'.$post->first_name.' '.$post->last_name.'</a></li>
+                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a data="articles=' . $post->id_posts . '" href="#" onclick="return false;">' . $post->first_name . ' ' . $post->last_name . '</a></li>
                   <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a data="articles=' . $post->id_posts . '" href="#" onclick="return false;">
                   <time class="timeago" datetime="' . date('c', strtotime($post->created_at)) . '">' . date('j F Y à H:m', strtotime($post->created_at)) . '</time></a></li>
                   <li class="d-flex align-items-center"><i class="icofont-comment"></i><a data="articles=' . $post->id_posts . '" href="#" onclick="return false;">';
@@ -146,17 +146,18 @@ if (isset($_POST['articles_click'])) {
 
               <div class="entry-footer clearfix">
                 <div class="float-left">
-                  <i class="icofont-folder"></i>
-                  <ul class="cats">
-                    <li><a href="#">Business</a></li>
-                  </ul>
-
                   <i class="icofont-tags"></i>
-                  <ul class="tags">
-                    <li><a href="#">Creative</a></li>
-                    <li><a href="#">Tips</a></li>
-                    <li><a href="#">Marketing</a></li>
-                  </ul>
+                  <ul class="tags">';
+        foreach (App::getDB()->query('SELECT tags.title AS titre FROM posts_tags 
+                                                   INNER JOIN tags
+                                                   ON posts_tags.tag_id=tags.id
+                                                   INNER JOIN posts
+                                                   ON posts_tags.post_id=posts.id
+                                                   WHERE posts.id=' . $_POST['articles_click']) as $tag):
+            $resultat .= '<li><a href="#" onclick="return false;">' . $tag->titre . '</a></li>';
+        endforeach;
+
+        $resultat .= '</ul>
                 </div>
 
                 <div class="float-right share">
@@ -169,15 +170,15 @@ if (isset($_POST['articles_click'])) {
 
             </article><!-- End blog entry -->
             ';
-        $img = isset($retour->avatar) ? str_replace('../../public/', ' ', $retour->avatar): 'assets/img/profil.png';
+        $img = isset($retour->avatar) ? str_replace('../../public/', ' ', $retour->avatar) : 'assets/img/profil.png';
         $resultat .= '<div class="blog-author clearfix" data-aos="fade-up">
-              <img src="'.$img.'" class="rounded-circle float-left" alt="">
-              <h4>'.$post->first_name.' '.$post->last_name.'</h4>
+              <img src="' . $img . '" class="rounded-circle float-left" alt="">
+              <h4>' . $post->first_name . ' ' . $post->last_name . '</h4>
               <div class="social-links">
-                <a href="'.$post->linkedin.'"><i class="icofont-linkedin"></i></a>
-                <a href="'.$post->twitter.'"><i class="icofont-twitter"></i></a>
-                 <a href="'.$post->facebook.'"><i class="icofont-facebook"></i></a>
-                 <a href="'.$post->instagram.'"><i class="icofont-instagram"></i></a>
+                <a href="' . $post->linkedin . '"><i class="icofont-linkedin"></i></a>
+                <a href="' . $post->twitter . '"><i class="icofont-twitter"></i></a>
+                 <a href="' . $post->facebook . '"><i class="icofont-facebook"></i></a>
+                 <a href="' . $post->instagram . '"><i class="icofont-instagram"></i></a>
               </div>
             </div><!-- End blog author bio -->
 
@@ -229,7 +230,7 @@ if (isset($_POST['articles_click'])) {
 
 
             $resultat .= '<time class="timeago" datetime="' . $date_comment . '">' . date('j F Y à H:i', strtotime($date_comment)) . '</time>
-                <p>' . nl2br($comment->content) . '</p>';
+                <p>' . htmlspecialchars_decode(nl2br($comment->content)) . '</p>';
 
             $resultat .= '<div id="commentaire-reponses' . $comment->id_comments . '" class="reply-form collapse">
                     <h4>Répondre un commentaire</h4>
@@ -378,7 +379,9 @@ if (isset($_POST['pagination']) && isset($_POST['nbre_Article'])) {
             <div class="entry-meta">
                 <ul>
                     <li class="d-flex align-items-center"><i class="icofont-user"></i> <a
-                                data="articles=<?= $post_item['id_posts']; ?>" href="#" onclick="return false;"><?=$post_item['first_name'] . ' ' .$post_item['last_name'];?></a></li>
+                                data="articles=<?= $post_item['id_posts']; ?>" href="#"
+                                onclick="return false;"><?= $post_item['first_name'] . ' ' . $post_item['last_name']; ?></a>
+                    </li>
                     <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a
                                 data="articles=<?= $post_item['id_posts']; ?>" href="#" onclick="return false;">
                             <time class="timeago"
@@ -469,7 +472,7 @@ if (isset($_POST['postID'])) {
 
         $resultat .= '<time class="timeago" datetime="' . $date_comment . '">' . date('j F Y à H:i', strtotime($date_comment)) . '</time>
 
-                <p>' . nl2br($comment->content) . '</p>';
+                <p>' . htmlspecialchars_decode(nl2br($comment->content)) . '</p>';
 
 
         $resultat .= '<div id="commentaire-reponses' . $comment->id_comments . '" class="reply-form collapse">
@@ -510,7 +513,7 @@ if (isset($_POST['postID'])) {
 
             $resultat .= '<div id="comment-reply-' . $reply->id_comments_reply . '" class="comment comment-reply clearfix">';
             if ($comment->avatar == '')
-                $resultat .= '<img src="assets/img/comments-1.jpg" class="comment-img  float-left" alt="">';
+                $resultat .= '<img src="assets/img/profil3.png" class="comment-img  float-left" alt="">';
             else
                 $resultat .= '<img src="' . str_replace('../../public/', '', $comment->avatar) . '" class="comment-img  float-left" alt="">';
             $resultat .= '<h5><a href="">' . $reply->last_name . ' ' . $reply->first_name . '</a></h5>';
@@ -522,7 +525,7 @@ if (isset($_POST['postID'])) {
 
             $resultat .= '<time class="timeago" datetime="' . $date_comment . '">' . date('j F Y à H:i', strtotime($date_comment)) . '</time>
 
-                  <p>' . nl2br($reply->content) . '</p>
+                  <p>' . htmlspecialchars_decode(nl2br($reply->content)) . '</p>
 
                 </div><!-- End comment reply #1-->';
 
@@ -612,7 +615,9 @@ if (isset($_POST['m']) && isset($_POST['y'])) {
             <div class="entry-meta">
                 <ul>
                     <li class="d-flex align-items-center"><i class="icofont-user"></i> <a
-                                data="articles=<?= $post_item['id_posts']; ?>" href="#" onclick="return false;"><?=$post_item['first_name'] . ' ' .$post_item['last_name'];?></a></li>
+                                data="articles=<?= $post_item['id_posts']; ?>" href="#"
+                                onclick="return false;"><?= $post_item['first_name'] . ' ' . $post_item['last_name']; ?></a>
+                    </li>
                     <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a
                                 data="articles=<?= $post_item['id_posts']; ?>" href="#" onclick="return false;">
                             <time class="timeago"
@@ -786,7 +791,7 @@ if (isset($_GET['search_contenu'])) {
              </h2>
               <div class="entry-meta">
                     <ul>
-                        <li class="d-flex align-items-center"><i class="icofont-user"></i> <a data="articles=' . $post_item->id_posts . '" href="#" onclick="return false;">'.$post_item->first_name.' '.$post_item->last_name.'</a></li>
+                        <li class="d-flex align-items-center"><i class="icofont-user"></i> <a data="articles=' . $post_item->id_posts . '" href="#" onclick="return false;">' . $post_item->first_name . ' ' . $post_item->last_name . '</a></li>
                         <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a data="articles=' . $post_item->id_posts . '" href="#" onclick="return false;">
                         <time class="timeago" datetime="' . date('c', strtotime($post_item->created_at)) . '"></time></a></li>
                         <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a data="articles=' . $post_item->id_posts . '" href="#" onclick="return false;">';

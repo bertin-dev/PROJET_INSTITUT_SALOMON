@@ -29,6 +29,71 @@
 
           <div id="articles" class="col-lg-8 entries">
               <?php
+              if(isset($_GET['posts_id'])){
+
+                  $post = App::getDB()->compteur_start_end('SELECT posts.id AS id_posts, title, content, post_type, likes, dislike, favourited, posts.created_at,
+                                                            user_id, category_id, images.id AS id_images, url_miniature, url,
+                                                     u.first_name, u.last_name, u.linkedin, u.instagram, u.facebook, u.twitter,
+                                                     u.email, u.avatar, u.profession
+                                                     FROM posts
+                                                     INNER JOIN images
+                                                     ON posts.id=images.post_id
+                                                     INNER JOIN users u 
+                                                     ON posts.user_id = u.id
+                                                     WHERE posts.id='.$_GET['posts_id']);
+                  $post->execute();
+                  while ($post_item = $post->fetch()) {
+                      ?>
+
+                      <article class="entry" data-aos="fade-up">
+
+                          <div class="entry-img">
+                              <?php
+                              $myImg = str_replace('../../public/', '', $post_item['url']);
+                              ?>
+                              <img src="<?=$myImg;?>" alt="<?=$post_item['title'];?>" title="<?=$post_item['title'];?>" class="img-fluid">
+                          </div>
+
+                          <h2 class="entry-title">
+                              <a data="articles=<?=$post_item['id_posts'];?>" href="#" class="link_articles"><?=$post_item['title'];?></a>
+                          </h2>
+
+                          <div class="entry-meta">
+                              <ul>
+                                  <li class="d-flex align-items-center"><i class="icofont-user"></i> <a data="articles=<?=$post_item['id_posts'];?>" href="#" onclick="return false;"><?=$post_item['first_name'] . ' ' .$post_item['last_name'];?></a></li>
+                                  <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a data="articles=<?=$post_item['id_posts'];?>" href="#" onclick="return false;">
+                                          <time class="timeago" datetime="<?=date('c', strtotime($post_item['created_at']));?>"></time>
+                                      </a></li>
+                                  <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a data="articles=<?=$post_item['id_posts'];?>" href="#" onclick="return false;">
+                                          <?php
+                                          $result = App::getDB()->rowCount('SELECT comments.id AS id_comments, comments.content, comments.created_at, users.first_name, users.last_name FROM posts
+                            INNER JOIN comments
+                            ON posts.id=comments.post_id
+                            INNER JOIN users
+                            ON users.id=comments.user_id
+                            WHERE posts.id='. $post_item['id_posts']);
+                                          if(intval($result) == 0)
+                                              echo  $result .' Commentaire';
+                                          elseif (intval($result) == 1)
+                                              echo $result . ' Commentaire';
+                                          else
+                                              echo $result . ' Commentaires';
+                                          ?>
+                                      </a></li>
+                              </ul>
+                          </div>
+
+                          <div class="entry-content">
+                              <p>
+                                  <?=htmlspecialchars_decode($post_item['content']) ?>
+                              </p>
+                          </div>
+
+                      </article><!-- End blog entry -->
+
+                      <?php
+                  }
+              }else{
               $nombreDeMessagesParPage = 5; // Essayez de changer ce nombre pour voir :o)
               $pages = 1; // On se met sur la page 1 (par défaut)
               // On calcule le numéro du premier message qu'on prend pour le LIMIT de MySQL
@@ -99,7 +164,7 @@
 
                   </article><!-- End blog entry -->
 
-              <?php
+                  <?php
               }
 
               $totalDesMessages = App::getDB()->rowCount('SELECT posts.id AS id_posts, title, content, post_type, likes, dislike, favourited, posts.created_at,
@@ -141,8 +206,8 @@
               echo '&MessagesParPage='.$nombreDeMessagesParPage.'" href="#" class="pagination_link" title="Suivant"><i class="icofont-rounded-right"></i></a></li>
               </ul>
               </div>';
+              }
               ?>
-
           </div><!-- End blog entries list -->
 
           <div class="col-lg-4">

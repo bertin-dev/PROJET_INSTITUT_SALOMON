@@ -584,6 +584,13 @@ if(isset($_GET['article'])) {
                                                VALUES(?, ?, ?, ?)',
                 array($imgArticleIcon, $imgArticle, time(), $max['max_id']));
 
+
+            //save tag match to post
+        $tags = explode(",", $_GET['article']);
+        foreach ($tags as $tag2){
+            $connexion->insert('INSERT INTO posts_tags(post_id, tag_id) VALUES(?, ?)', array($max['max_id'], $tag2));
+        }
+
             $message .= 'success';
 
     }
@@ -764,7 +771,7 @@ if(isset($_GET['equipeP'])) {
 
         // Si une erreur survient
         if($result > 0 ) {
-            $message .= 'Cette langue existe déjà';
+            $message .= 'Ce partenaire existe déjà';
         }
         else {
 
@@ -2248,4 +2255,349 @@ if(isset($_GET['delVAEItem'])){
 }
 
 
+/* ==========================================================================
+UPDATE ARTICLE
+========================================================================== */
+// Une fois le formulaire envoyé
+if(isset($_GET['update_article'])) {
 
+    $_POST['desc_article'] = htmlspecialchars($_POST['desc_article'], ENT_QUOTES);
+
+    if(!isset($_POST['desc_article']) || empty($_POST['desc_article'])){
+        $message .= "Veuillez inserer un article<br />\n";
+    } else {
+
+        nettoieProtect();
+        extract($_POST);
+
+        $connexion = App::getDB();
+
+
+        //on verifi si l'adresse de l'image a ete bien definit
+        if(isset($_FILES['imgInp']['name']) AND !empty($_FILES['imgInp']['name']))
+        {
+            /*$file = $_FILES["files"]['tmp_name'];
+            list($width, $height) = getimagesize($file);
+
+            if($width > "180" || $height > "70") {
+                echo "Error : image size must be 180 x 70 pixels.";
+                exit;
+            }*/
+
+            //on verifi la taille de l'image
+            if($_FILES['imgInp']['size']>=1000)
+            {
+                $extensions_valides=Array('jpg', 'jpeg', 'png', 'JPG', 'JPEG', 'PNG');
+                //la fonctions strrchr( $chaine,'.') renvoit l'extension avec le point
+                //la fonction substtr($chaine,1) ingore la premiere caractere de la chaine
+                //la fonction strtolower($chaine) renvoit la chaine en minuscule
+                $extension_upload=strtolower(substr(strrchr($_FILES['imgInp']['name'],'.'),1));
+                //on verifi si l'extension_upload est valide
+
+                if(in_array($extension_upload,$extensions_valides))
+                {
+                    $token=md5(uniqid(rand(),true));
+                    $imgArticle="../../public/assets/img/article/{$token}.{$extension_upload}";
+                    // $chemin="blog_img/{$token}.{$extension_upload}";
+                    //on deplace du serveur au disque dur
+
+                    if(move_uploaded_file($_FILES['imgInp']['tmp_name'],$imgArticle))
+                    {
+                        // La photo est la source
+                        if($extension_upload=='jpg' OR $extension_upload=='jpeg' OR $extension_upload=='JPG' OR $extension_upload=='JPEG')
+                        {$source = imagecreatefromjpeg($imgArticle);}
+                        else{$source = imagecreatefrompng($imgArticle);}
+                        $destination = imagecreatetruecolor(150, 150); // On crée la miniature vide
+
+                        // Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
+                        $largeur_source = imagesx($source);
+                        $hauteur_source = imagesy($source);
+                        $largeur_destination = imagesx($destination);
+                        $hauteur_destination = imagesy($destination);
+                        //$chemin0="blog_img/miniature/{$token}.{$extension_upload}";
+                        $imgArticleIcon="../../public/assets/img/article/miniature/{$token}.{$extension_upload}";
+                        // On crée la miniature
+                        imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hauteur_destination, $largeur_source, $hauteur_source);
+                        imagejpeg($destination,$imgArticleIcon);
+                    } else {
+                        $message .= "no deplace<br/>";
+                    }
+                } else {
+                    $message .= "no extensions<br/>";
+                }
+            } else {
+                $message .= "no size<br/>";
+            }
+        } else {
+            $message .= "no defined<br/>";
+        }
+
+        //update posts
+        $connexion->update('UPDATE posts SET title=:title, content=:content, updated_at=:updated_at, category_id=:cat WHERE id=:id',
+            array('title'=>$_POST['titre_article'],
+                 'content'=>$_POST['desc_article'],
+                'updated_at' => time(),
+                'cat' => $_POST['category_id'],
+                'id' => $_POST["hideID"]));
+
+        //update image
+        $connexion->update('UPDATE images SET url_miniature=:url_miniature, url=:url, updated_at=:updated_at WHERE post_id=:post_id',
+            array('url_miniature'=>$imgArticleIcon,
+                'url'=>$imgArticle,
+                'updated_at' => time(),
+                'post_id' => $_POST["hideID"]));
+
+        $message .= 'success';
+
+    }
+    echo $message;
+}
+
+
+/* ==========================================================================
+DELETE ARTICLE
+========================================================================== */
+if(isset($_GET['delArticle'])){
+    App::getDB()->delete('DELETE FROM posts WHERE id=:id', ['id' =>$_GET['delArticle']]);
+    header('Location: ../body.php?id=8');
+}
+
+
+
+/* ==========================================================================
+UPDATE NEWSLETTER
+========================================================================== */
+if(isset($_GET['updateN'])) {
+
+    if(!isset($_POST['lbl']) || empty($_POST['lbl'])){
+        $message .= "Veuillez inserer un Libelle<br />\n";
+    } else {
+
+        nettoieProtect();
+        extract($_POST);
+
+        $connexion = App::getDB();
+        $result = $connexion->rowCount('SELECT id FROM newsletters WHERE email_newsletter="'. $_POST['lbl'] .'"');
+
+        // Si une erreur survient
+        if($result > 0 ) {
+            $message .= 'Ce newsletter existe déjà';
+        }
+        else {
+
+            $connexion->update('UPDATE newsletters SET email_newsletter=:email_newsletter, updated_at=:updated_at WHERE id=:id',
+                array('email_newsletter'=>$_POST['lbl'], 'updated_at'=>time(), 'id' => $_POST['modID']));
+
+            $message .= 'success-update';
+        }
+    }
+    echo $message;
+}
+
+
+/* ==========================================================================
+DELETE NEWSLETTER
+========================================================================== */
+if(isset($_GET['delN'])){
+    App::getDB()->delete('DELETE FROM newsletters WHERE id=:id', ['id' =>$_GET['delN']]);
+    header('Location: ../body.php?id=10');
+}
+
+
+
+
+
+/* ==========================================================================
+ADD APROPOS
+========================================================================== */
+if(isset($_GET['apropos'])) {
+
+
+    if(!isset($_POST['libelle']) || empty($_POST['libelle'])){
+        $message .= "Veuillez inserer un libelle<br />\n";
+    } else {
+
+        nettoieProtect();
+        extract($_POST);
+
+        $connexion = App::getDB();
+        $result = $connexion->rowCount('SELECT id FROM about WHERE libelle="'. $_POST['libelle'] .'"');
+
+        // Si une erreur survient
+        if($result > 0 ) {
+            $message .= 'Cette libelle existe déjà';
+        }
+        else {
+
+        }
+
+
+        //on verifi si l'adresse de l'image a ete bien definit
+        if(isset($_FILES['avatar']['name']) AND !empty($_FILES['avatar']['name']))
+        {
+            /*$file = $_FILES["files"]['tmp_name'];
+            list($width, $height) = getimagesize($file);
+
+            if($width > "180" || $height > "70") {
+                echo "Error : image size must be 180 x 70 pixels.";
+                exit;
+            }*/
+
+            //on verifi la taille de l'image
+            if($_FILES['avatar']['size']>=1000)
+            {
+                $extensions_valides=Array('jpg', 'jpeg', 'png', 'JPG', 'JPEG', 'PNG');
+                //la fonctions strrchr( $chaine,'.') renvoit l'extension avec le point
+                //la fonction substtr($chaine,1) ingore la premiere caractere de la chaine
+                //la fonction strtolower($chaine) renvoit la chaine en minuscule
+                $extension_upload=strtolower(substr(strrchr($_FILES['avatar']['name'],'.'),1));
+                //on verifi si l'extension_upload est valide
+
+                if(in_array($extension_upload,$extensions_valides))
+                {
+                    $token=md5(uniqid(rand(),true));
+                    $imgArticle="../../public/assets/img/equipe_pedagogique/{$token}.{$extension_upload}";
+                    // $chemin="blog_img/{$token}.{$extension_upload}";
+                    //on deplace du serveur au disque dur
+
+                    if(move_uploaded_file($_FILES['avatar']['tmp_name'],$imgArticle))
+                    {
+                        // La photo est la source
+                        if($extension_upload=='jpg' OR $extension_upload=='jpeg' OR $extension_upload=='JPG' OR $extension_upload=='JPEG')
+                        {$source = imagecreatefromjpeg($imgArticle);}
+                        else{$source = imagecreatefrompng($imgArticle);}
+                        $destination = imagecreatetruecolor(150, 150); // On crée la miniature vide
+
+                        // Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
+                        $largeur_source = imagesx($source);
+                        $hauteur_source = imagesy($source);
+                        $largeur_destination = imagesx($destination);
+                        $hauteur_destination = imagesy($destination);
+                        //$chemin0="blog_img/miniature/{$token}.{$extension_upload}";
+                        $imgArticleIcon="../../public/assets/img/equipe_pedagogique/miniature/{$token}.{$extension_upload}";
+                        // On crée la miniature
+                        imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hauteur_destination, $largeur_source, $hauteur_source);
+                        imagejpeg($destination,$imgArticleIcon);
+                    } else {
+                        $message .= "no deplace<br/>";
+                    }
+                } else {
+                    $message .= "no extensions<br/>";
+                }
+            } else {
+                $message .= "no size<br/>";
+            }
+        } else {
+            $message .= "no defined<br/>";
+        }
+
+        //save users
+        $connexion->insert('INSERT INTO about(libelle, description, img_url, user_id, created_at)
+                                               VALUES(?, ?, ?, ?, ?)',
+            array($_POST['libelle'], $_POST['description'], $imgArticle, 0, time()));
+
+
+        $message .= 'success';
+
+    }
+    echo $message;
+}
+
+/* ==========================================================================
+UPDATE APROPOS
+========================================================================== */
+if(isset($_GET['updateA'])) {
+
+    if(!isset($_POST['libelle']) || empty($_POST['libelle'])){
+        $message .= "Veuillez inserer un libelle<br />\n";
+    } else {
+
+        nettoieProtect();
+        extract($_POST);
+
+        $connexion = App::getDB();
+        $result = $connexion->rowCount('SELECT id FROM about WHERE libelle="'. $_POST['libelle'] .'"');
+
+        // Si une erreur survient
+        if($result > 0 ) {
+            $message .= 'Ce libelle existe déjà';
+        }
+        else {
+
+            //on verifi si l'adresse de l'image a ete bien definit
+            if(isset($_FILES['avatar']['name']) AND !empty($_FILES['avatar']['name']))
+            {
+                /*$file = $_FILES["files"]['tmp_name'];
+                list($width, $height) = getimagesize($file);
+
+                if($width > "180" || $height > "70") {
+                    echo "Error : image size must be 180 x 70 pixels.";
+                    exit;
+                }*/
+
+                //on verifi la taille de l'image
+                if($_FILES['avatar']['size']>=1000)
+                {
+                    $extensions_valides=Array('jpg', 'jpeg', 'png', 'JPG', 'JPEG', 'PNG');
+                    //la fonctions strrchr( $chaine,'.') renvoit l'extension avec le point
+                    //la fonction substtr($chaine,1) ingore la premiere caractere de la chaine
+                    //la fonction strtolower($chaine) renvoit la chaine en minuscule
+                    $extension_upload=strtolower(substr(strrchr($_FILES['avatar']['name'],'.'),1));
+                    //on verifi si l'extension_upload est valide
+
+                    if(in_array($extension_upload,$extensions_valides))
+                    {
+                        $token=md5(uniqid(rand(),true));
+                        $imgArticle="../../public/assets/img/equipe_pedagogique/{$token}.{$extension_upload}";
+                        // $chemin="blog_img/{$token}.{$extension_upload}";
+                        //on deplace du serveur au disque dur
+
+                        if(move_uploaded_file($_FILES['avatar']['tmp_name'],$imgArticle))
+                        {
+                            // La photo est la source
+                            if($extension_upload=='jpg' OR $extension_upload=='jpeg' OR $extension_upload=='JPG' OR $extension_upload=='JPEG')
+                            {$source = imagecreatefromjpeg($imgArticle);}
+                            else{$source = imagecreatefrompng($imgArticle);}
+                            $destination = imagecreatetruecolor(150, 150); // On crée la miniature vide
+
+                            // Les fonctions imagesx et imagesy renvoient la largeur et la hauteur d'une image
+                            $largeur_source = imagesx($source);
+                            $hauteur_source = imagesy($source);
+                            $largeur_destination = imagesx($destination);
+                            $hauteur_destination = imagesy($destination);
+                            //$chemin0="blog_img/miniature/{$token}.{$extension_upload}";
+                            $imgArticleIcon="../../public/assets/img/equipe_pedagogique/miniature/{$token}.{$extension_upload}";
+                            // On crée la miniature
+                            imagecopyresampled($destination, $source, 0, 0, 0, 0, $largeur_destination, $hauteur_destination, $largeur_source, $hauteur_source);
+                            imagejpeg($destination,$imgArticleIcon);
+                        } else {
+                            $message .= "no deplace<br/>";
+                        }
+                    } else {
+                        $message .= "no extensions<br/>";
+                    }
+                } else {
+                    $message .= "no size<br/>";
+                }
+            } else {
+                $message .= "no defined<br/>";
+            }
+
+            $connexion->update('UPDATE about SET libelle=:libelle, description=:description, img_url=:img_url, user_id=:user_id, updated_at=:updated_at WHERE id=:id',
+                array('libelle'=>$_POST['libelle'], 'description'=>$_POST['description'], 'img_url'=>$imgArticle, 'user_id'=>0,
+                    'updated_at'=>time(), 'id' => $_POST['hideID']));
+
+            $message .= 'success-update';
+        }
+    }
+    echo $message;
+}
+
+
+/* ==========================================================================
+DELETE APROPOS
+========================================================================== */
+if(isset($_GET['delA'])){
+    App::getDB()->delete('DELETE FROM about WHERE id=:id', ['id' =>$_GET['delA']]);
+    header('Location: ../body.php?id=7');
+}
