@@ -20,13 +20,21 @@ $info_DB = new Controller(); $info_DB->extract_DB();
 
 echo "<section id='' class='info-header'>
     <div class='container'>
-        <div class='row bordure'>
-           <div class='col-lg-1 col-4 col-sm-3 col-md-2'><span>Information:</span></div>
-           <div class='col-lg-11 col-8 col-sm-9 col-md-10'>
+        <div class='row bordure' style='font-size:20px'>
+           <div class='col-lg-2 col-4 col-sm-3 col-md-2'><span>";
+
+            $connexion = App::getDB();
+            foreach($connexion->query('SELECT objet FROM message ORDER BY id DESC LIMIT 1') as $retour):
+                echo $retour->objet;
+            endforeach;
+           echo "</span></div>
+           <div class='col-lg-10 col-8 col-sm-9 col-md-10'>
             <div class='marquee'>
-                <div class='marquee-text'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad adipisci aliquid animi dolor, doloremque doloribus eveniet ex fuga id iste, nihil nisi nostrum odit perspiciatis quam sint soluta velit.
-                </div>
+                <div class='marquee-text'>";
+           foreach($connexion->query('SELECT msg FROM message ORDER BY id DESC LIMIT 1') as $retour):
+           echo $retour->msg;
+           endforeach;
+               echo "</div>
             </div>
             </div>
         </div>

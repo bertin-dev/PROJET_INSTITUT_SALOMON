@@ -89,6 +89,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   transition: display 0.5s ease-in-out;
   z-index: 99999;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 .back-to-top i {
@@ -224,7 +225,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  color: #8A2BE2;
+  color: #fcd21c;
+  font-weight: bold;
   text-decoration: none;
 }
 
@@ -1549,7 +1551,8 @@ section {
 .blog .entry {
   padding: 30px;
   margin-bottom: 60px;
-  background: #f8f6f5;
+  background: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .blog .entry .entry-img {
@@ -1925,7 +1928,8 @@ section {
 .blog .sidebar {
   padding: 30px;
   margin: 0 0 60px 20px;
-  background: #f8f6f5;
+  background: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .blog .sidebar .sidebar-title {
@@ -2070,14 +2074,14 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  color: #b4aca8;
+  color: #fff;
   font-size: 14px;
-  background: #38414a;
+  background: #8A2BE2;
 }
 
 #footer .footer-top {
   padding: 60px 0 30px 0;
-  background: #38414a;
+  background: #8A2BE2;
 }
 
 #footer .footer-top .footer-contact {
@@ -2100,7 +2104,7 @@ section {
   line-height: 24px;
   margin-bottom: 0;
   font-family: "Muli", sans-serif;
-  color: #b4aca8;
+  color: #fff;
 }
 
 #footer .footer-top h4 {
@@ -2123,7 +2127,7 @@ section {
 
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #8A2BE2;
+  color: #fcd21c;
   font-size: 18px;
   line-height: 1;
 }
@@ -2139,7 +2143,7 @@ section {
 }
 
 #footer .footer-top .footer-links ul a {
-  color: #b4aca8;
+  color: #fff;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
@@ -2147,7 +2151,7 @@ section {
 
 #footer .footer-top .footer-links ul a:hover {
   text-decoration: none;
-  color: #8A2BE2;
+  color: #fcd21c;
 }
 
 #footer .footer-newsletter {
@@ -2216,6 +2220,7 @@ section {
   width: 36px;
   height: 36px;
   transition: 0.3s;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 
 #footer .social-links a:hover {
@@ -2596,7 +2601,7 @@ div.marquee > div.marquee-text {
 }
 
 .saleon {
-  background: #3EC1D5 none repeat scroll 0 0;
+  background: #fcd21c none repeat scroll 0 0;
   color: #fff;
   font-size: 13px;
   font-weight: 700;
@@ -2655,7 +2660,7 @@ div.marquee > div.marquee-text {
     position: absolute;
     right: 50px;
     top: 12px;
-    color: #3EC1D5;
+    color: #fcd21c;
 }
 
 .pri_table_list li.check.cross::after {
@@ -2665,5 +2670,5 @@ div.marquee > div.marquee-text {
     position: absolute;
     right: 50px;
     top: 12px;
-    color: indianred;
+    color: #8A2BE2;
 }

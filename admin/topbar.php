@@ -6,7 +6,7 @@
     </button>
 
     <!-- Topbar Search -->
-    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+    <!--<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
         <div class="input-group">
             <input type="text" class="form-control bg-light border-0 small" placeholder="Rechecher..." aria-label="Search" aria-describedby="basic-addon2">
             <div class="input-group-append">
@@ -15,17 +15,17 @@
                 </button>
             </div>
         </div>
-    </form>
+    </form>-->
 
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
 
         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-        <li class="nav-item dropdown no-arrow d-sm-none">
+        <!--<li class="nav-item dropdown no-arrow d-sm-none">
             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
             </a>
-            <!-- Dropdown - Messages -->
+
             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                     <div class="input-group">
@@ -38,54 +38,66 @@
                     </div>
                 </form>
             </div>
-        </li>
+        </li>-->
 
         <!-- Nav Item - Alerts -->
         <li class="nav-item dropdown no-arrow mx-1">
             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw"></i>
                 <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
+                <?php
+                $connexion = \App::getDB();
+                $result = $connexion->rowCount('SELECT * FROM comments c
+                                                      INNER JOIN comments_reply cr 
+                                                      ON c.id = cr.comments_id
+                                                      ');
+                if(intval($result)<100)
+                    echo '<span class="badge badge-danger badge-counter">'.$result.'</span>';
+                else
+                    echo '<span class="badge badge-danger badge-counter">99+</span>';
+                ?>
             </a>
             <!-- Dropdown - Alerts -->
-            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
+            <div id="notif" class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
-                    Alerts Center
+                    Notifications
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                    <?php
+                    foreach($connexion->query('SELECT posts.id AS post_id, title, posts.content AS post_content, featured_image, post_type, likes, dislike, favourited, posts.created_at AS p_create, category_id, 
+                                                           c.id, c.content AS c_content, 
+                                                           cr.id, cr.content AS cr_content, comments_id, 
+                                                           i.id, url_miniature, url, vie_ass_id,
+                                                           first_name, last_name
+                                                      FROM posts
+                                                      INNER JOIN comments c 
+                                                      ON posts.id = c.post_id
+                                                      INNER JOIN comments_reply cr 
+                                                      ON c.id = cr.comments_id
+                                                      INNER JOIN images i 
+                                                      ON posts.id = i.post_id
+                                                      INNER JOIN users u 
+                                                      ON posts.user_id = u.id
+                                                      ORDER BY posts.id DESC 
+                                                      LIMIT 4 
+                                                      ') as $retour):
+                        $img = isset($retour->url) ? str_replace('../../public/', '../public/', $retour->url): 'assets/img/slide/slide-1.jpg';
+
+                        echo '<a class="dropdown-item d-flex align-items-center" href="#">
                     <div class="mr-3">
-                        <div class="icon-circle bg-primary">
-                            <i class="fas fa-file-alt text-white"></i>
+                        <div class="icon-circle">
+                        <img class="img-thumbnail" src="'.$img.'" alt="">
                         </div>
                     </div>
                     <div>
-                        <div class="small text-gray-500">December 12, 2019</div>
-                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                        <div class="small text-gray-500"><time class="timeago" datetime="'.$retour->p_create.'"></time></div>
+                        <span class="font-weight-bold">'.$retour->title.'</span><br>
+                        <span class="small text-gray-500">'.$retour->c_content.'</span>
+                           <span class="small text-gray-500"><small>'.$retour->first_name.' '.$retour->last_name.'</small></span>
                     </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="mr-3">
-                        <div class="icon-circle bg-success">
-                            <i class="fas fa-donate text-white"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="small text-gray-500">December 7, 2019</div>
-                        $290.29 has been deposited into your account!
-                    </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="mr-3">
-                        <div class="icon-circle bg-warning">
-                            <i class="fas fa-exclamation-triangle text-white"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="small text-gray-500">December 2, 2019</div>
-                        Spending Alert: We've noticed unusually high spending for your account.
-                    </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                </a>';
+                    endforeach;
+                    ?>
+                <a id="allnotifs" class="dropdown-item text-center small text-gray-500" href="#">Afficher plus</a>
             </div>
         </li>
 
@@ -94,54 +106,39 @@
             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
+                <?php
+                $result = $connexion->rowCount('SELECT * FROM newsletters');
+                if(intval($result)<100)
+                    echo '<span class="badge badge-danger badge-counter">'.$result.'</span>';
+                else
+                    echo '<span class="badge badge-danger badge-counter">99+</span>';
+
+
+                ?>
             </a>
             <!-- Dropdown - Messages -->
             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
-                    Message Center
+                    Newsletter
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <?php
+                foreach($connexion->query('SELECT * FROM newsletters
+                                                      ORDER BY id DESC 
+                                                      LIMIT 4 
+                                                      ') as $retour):
+
+                echo '<a class="dropdown-item d-flex align-items-center" href="#">
                     <div class="dropdown-list-image mr-3">
                         <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
                         <div class="status-indicator bg-success"></div>
                     </div>
                     <div class="font-weight-bold">
-                        <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                        <div class="text-truncate">'.$retour->email_newsletter.'</div>
+                        <div class="small text-gray-500">'.date('d/m/Y H:i:s', $retour->created_at).'</div>
                     </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="dropdown-list-image mr-3">
-                        <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                        <div class="status-indicator"></div>
-                    </div>
-                    <div>
-                        <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                    </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="dropdown-list-image mr-3">
-                        <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                        <div class="status-indicator bg-warning"></div>
-                    </div>
-                    <div>
-                        <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                    </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div class="dropdown-list-image mr-3">
-                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                        <div class="status-indicator bg-success"></div>
-                    </div>
-                    <div>
-                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                    </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                </a>';
+                endforeach;
+                ?>
             </div>
         </li>
 
@@ -150,8 +147,12 @@
         <!-- Nav Item - User Information -->
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <?php
+                foreach (App::getDB()->query('SELECT * FROM users WHERE id="'.$user_id.'" ORDER BY id DESC') AS $mod):
+                echo ' <span class="mr-2 d-none d-lg-inline text-gray-600 small">'.$mod->first_name . ' '.$mod->last_name.'</span>
+                <img class="img-profile rounded-circle" src="'.$mod->avatar = str_replace('../../', '../', $mod->avatar).'">';
+                endforeach;
+                ?>
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -159,14 +160,11 @@
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                 </a>
-                <a class="dropdown-item" href="#">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Activity Log
-                </a>
+                <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#register">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Ajouter un utilisateur</a>
+
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

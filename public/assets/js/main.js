@@ -1151,3 +1151,209 @@ $(function () {
   item13.addClass('show');
 
 });
+
+
+/*$(function () {
+  // Back to top button
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 300) {
+      alert('bonjour a vous');
+    } else {
+      $('.back-to-top').fadeOut('slow');
+    }
+  });
+});*/
+
+
+
+
+$(function () {
+  /* ==========================================================================
+         GESTION DU SYSTEME DE CONNEXION
+     ========================================================================== */
+
+  $('#exampleInputEmail').keyup(function () {
+    emailSingIn();
+  });
+
+  $('#exampleInputPassword').keyup(function () {
+    passwordSingIn();
+  });
+
+  //fonction de verification de l'email en ajax
+  function emailSingIn() {
+    const email = $('#exampleInputEmail');
+    $.ajax({
+      type: 'post',
+      url: '../Core/Controller/verification.php?singIn=singIn',
+      data: {
+        'emailSingIn': email.val()
+      },
+      success: function (data) {
+        if(data=='success'){
+
+          if(email.hasClass('is-invalid')){
+            email.removeClass('is-invalid');
+            email.addClass('is-valid');
+          }
+
+          console.log(data);
+          $('#output_emailSingIn').html("");
+          return true;
+        }
+        else{
+
+          if(email.hasClass('is-valid')){
+            email.removeClass('is-valid');
+            email.addClass('is-invalid');
+          } else{
+            email.addClass('is-invalid');
+          }
+
+          $('#output_emailSingIn').css('color', 'red').html(data);
+        }
+      }
+    });
+
+
+  }
+
+  //fonction de verification du password en ajax
+  function passwordSingIn() {
+    const password = $('#exampleInputPassword');
+    $.ajax({
+      type: 'post',
+      url: '../Core/Controller/verification.php?singIn=singIn',
+      data: {
+        'passwordSingIn': password.val()
+      },
+      success: function (data) {
+        if(data=='success'){
+
+          if(password.hasClass('is-invalid')){
+            password.removeClass('is-invalid');
+            password.addClass('is-valid');
+          }
+
+          console.log(data);
+          $('#output_passwordSingIn').html("");
+          return true;
+        }
+        else{
+
+          if(password.hasClass('is-valid')){
+            password.removeClass('is-valid');
+            password.addClass('is-invalid');
+          } else{
+            password.addClass('is-invalid');
+          }
+
+          $('#output_passwordSingIn').css('color', 'red').html(data);
+        }
+      }
+    });
+
+
+  }
+
+
+  $('#singIn').submit(function () {
+    var email = $('#exampleInputEmail').val(), password = $('#exampleInputPassword').val();
+
+    if (email == '' || password == '') {
+      $('#rapportLogin').show().html('Veuillez Remplir Tous les Champs !');
+    }
+    else {
+      var $form = $(this);
+      var formdata = (window.FormData) ? new FormData($form[0]) : null;
+      var donnee = (formdata !== null) ? formdata : $form.serialize();
+
+      $.ajax({
+        type: 'post',
+        url: '../Core/Controller/submit.php?singIn=singIn',
+        contentType: false, // obligatoire pour de l'upload
+        processData: false, // obligatoire pour de l'upload
+        data: donnee,
+        beforeSend: function () {
+          $('#login_send').html('En cours...');
+          $('#load_data_SingIn').show().fadeIn();
+        },
+        success: function (data) {
+           if(data === 'success'){
+            $('#login_send').html('Login');
+            $('#load_data_SingIn').hide().fadeOut();
+             $('#rapportLogin').show().html('Connexion Réussie !');
+            setTimeout(function () {
+              $(location).attr('href',"../admin");
+            }, 3000);
+          }
+          else {
+             $('#login_send').html('Login');
+             $('#load_data_SingIn').hide().fadeOut();
+             $('#rapportLogin').show().html(data);
+          }
+        }
+
+      });
+
+    }
+
+
+  });
+
+
+  $('#getPassword').submit(function () {
+    var email = $('#emailForget').val();
+
+
+    if (email == '') {
+      $('#rapportPwdF').show().html('Veuillez inserer l\'adresse email');
+    }
+    else {
+      var $form = $(this);
+      var formdata = (window.FormData) ? new FormData($form[0]) : null;
+      var donnee = (formdata !== null) ? formdata : $form.serialize();
+
+      $.ajax({
+        type: 'post',
+        url: '../Core/Controller/submit.php?getEmail=getEmail',
+        contentType: false, // obligatoire pour de l'upload
+        processData: false, // obligatoire pour de l'upload
+        data: donnee,
+        beforeSend: function () {
+          $('#sendEmailForget').html('En cours...');
+          $('#load_data_getEmail').show();
+        },
+        success: function (data) {
+          if(data != 'success'){
+            $('#sendEmailForget').html('Envoyer');
+            $('#load_data_getEmail').hide();
+
+            $('#rapportPwdF').show().html(data);
+          }
+          else {
+            $('#sendEmailForget').html('Envoyer');
+            $('#load_data_getEmail').hide();
+
+            $('#rapportPwdF').show().html('Vous allez recevoir votre email');
+
+             setTimeout(function () {
+               $(location).attr('href',"../admin");
+             }, 2000);
+          }
+        }
+
+      });
+
+    }
+
+
+  });
+
+});
+
+
+
+
+
+

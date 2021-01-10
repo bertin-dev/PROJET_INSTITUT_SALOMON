@@ -1,9 +1,30 @@
 <?php
 
 require '../../app/config/Config_Server.php';
+session_start();
 $connexion = App::getDB();
 define('MIN_CHARACTER', 0);
 define('MAX_CHARACTER', 500);
+
+
+function nettoieProtect(){
+
+    foreach($_POST as $k => $v){
+        $v=strip_tags(trim($v));
+        $_POST[$k]=$v;
+    }
+
+    foreach($_GET as $k => $v){
+        $v=strip_tags(trim($v));
+        $_GET[$k]=$v;
+    }
+
+    foreach($_REQUEST as $k => $v){
+        $v=strip_tags(trim($v));
+        $_REQUEST[$k]=$v;
+    }
+
+}
 
 
 /* ==========================================================================
@@ -139,7 +160,7 @@ if (isset($_POST['articles_click'])) {
                 </ul>
               </div>
 
-              <div class="entry-content">
+              <div class="entry-content overflow-auto">
                 <p>' . htmlspecialchars_decode($post->content) . '</p>
 
               </div>
@@ -408,7 +429,7 @@ if (isset($_POST['pagination']) && isset($_POST['nbre_Article'])) {
                 </ul>
             </div>
 
-            <div class="entry-content">
+            <div class="entry-content overflow-auto">
                 <p>
                     <?= htmlspecialchars_decode($post_item['content']); ?>
                 </p>
@@ -643,7 +664,7 @@ if (isset($_POST['m']) && isset($_POST['y'])) {
                 </ul>
             </div>
 
-            <div class="entry-content">
+            <div class="entry-content overflow-auto">
                 <p>
                     <?= substr(htmlspecialchars_decode($post_item['content']), MIN_CHARACTER, MAX_CHARACTER) ?>
                 </p>
@@ -725,7 +746,7 @@ if (isset($_POST['categories'])) {
                 </ul>
             </div>
 
-            <div class="entry-content">
+            <div class="entry-content overflow-auto">
                 <p>
                     <?= substr(htmlspecialchars_decode($post_item['content']), MIN_CHARACTER, MAX_CHARACTER) ?>
                 </p>
@@ -812,7 +833,7 @@ if (isset($_GET['search_contenu'])) {
             $result .= '</a></li>
                     </ul>
                 </div>
-                 <div class="entry-content">
+                 <div class="entry-content overflow-auto">
                     <p>' . substr(htmlspecialchars_decode($post_item->content), MIN_CHARACTER, MAX_CHARACTER) . '
                       </p>
                     <div class="read-more">
@@ -866,6 +887,69 @@ if (isset($_GET['newsletter'])) {
         }
     }
 }
+
+
+if(isset($_GET['singIn']))
+{
+    if(isset($_POST['emailSingIn'])){
+
+        nettoieProtect();
+        extract($_POST);
+
+        if(strlen($_POST['emailSingIn']) < 4 || strlen($_POST['emailSingIn']) > 20 ){
+            echo '<br>L\'adresse Email est compris entre 3 et 16 caractères';
+            exit;
+        }
+
+        if(is_numeric($_POST['emailSingIn'][0])){
+            echo '<br>L\'adresse email doit commencer par une lettre';
+            exit;
+        }
+
+        if(!filter_var($_POST['emailSingIn'], FILTER_VALIDATE_EMAIL)) { //Validation d'une adresse de messagerie.
+            echo '<br>Votre Adresse E-mail n\'est pas valide';
+            exit();
+        }
+
+
+        $connexion = App::getDB();
+        $nbre = $connexion->rowCount('SELECT id FROM users WHERE email="'.$_POST['emailSingIn'].'"');
+        if($nbre <= 0){
+            echo '<br>Votre Email n\'existe pas';
+            exit;
+        }
+        else{
+            echo 'success';
+        }
+    }
+
+
+    if(isset($_POST['passwordSingIn'])){
+
+        nettoieProtect();
+        extract($_POST);
+        $passwordSingIn = preg_replace('#[^a-z0-9_-]#i', '', $passwordSingIn); //filter everything
+        // Connexion à la base de données
+
+        $connexion = App::getDB();
+        if(strlen($passwordSingIn) < 4 || strlen($passwordSingIn) > 30 ){
+            echo '<br>Le Mot de Passe est compris entre 4 et 30 caractères';
+            exit;
+        }
+
+        $passwordSingIn = sha1($passwordSingIn);
+        $nbre = $connexion->rowCount('SELECT id FROM users WHERE password="'.$passwordSingIn.'"');
+        if($nbre <= 0){
+            echo '<br>Ce Mot de Passe n\'existe pas';
+            exit;
+        }
+        else{
+            echo 'success';
+        }
+    }
+
+}
+
 
 
 

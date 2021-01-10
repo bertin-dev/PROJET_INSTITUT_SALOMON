@@ -1,4 +1,3 @@
-
 <footer id="footer">
 
     <div class="footer-top" style="padding-bottom: initial">
@@ -6,50 +5,88 @@
             <div class="row">
 
                 <div class="col-lg-3 col-md-6 footer-contact">
-                    <h3>Contact</h3>
-                    <p><?= isset($_ENV['localisation']) ? $_ENV['localisation']:''; ?><br>
-                        <!--New York, NY 535022<br>-->
-                        <!--United States <br><br>-->
-                        <strong>Phone:</strong> <?= isset($_ENV['phone']) ? $_ENV['phone']:''; ?><br>
-                        <strong>Email:</strong> <?= isset($_ENV['email']) ? $_ENV['email']:''; ?><br>
-                    </p>
+                    <h4>Institut salomon</h4>
+                    <?php
+                    $connexion = App::getDB();
+                    foreach($connexion->query('SELECT phone, localisation, web_site, email, h_ouverture, h_fermeture FROM footer') as $retour):
+                        echo '<p>'.$retour->localisation.'<br>
+                              <strong>Tel: </strong> '.$retour->phone.'<br>
+                                <strong>Email: </strong> '.$retour->email.'<br>
+                                <strong>Web: </strong> '.$retour->web_site.'<br>
+                                <strong> '.$retour->h_ouverture.' à '.$retour->h_fermeture.'</strong><br>
+                             </p>';
+                    endforeach;
+                    ?>
                 </div>
 
-                <div class="col-lg-2 col-md-6 footer-links" style="margin-bottom: initial">
-                    <h4>Useful Links</h4>
-                    <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-                    </ul>
+                <div class="col-lg-3 col-md-6">
+                    <h4>Photos Galerie Intitut Salomon</h4>
+                    <div class="row align-items-center">
+                        <div class="col-lg-12" id="slider">
+                            <div id="myCarousel" class="carousel slide shadow" data-ride="carousel">
+                                <!-- main slider carousel items -->
+                                <div class="carousel-inner">
+
+                                    <?php
+                                    foreach($connexion->query('SELECT id, url_miniature, url FROM images') as $retour):
+
+                                        $img = isset($retour->url) ? str_replace('../../public/', ' ', $retour->url): 'assets/img/slide/slide-1.jpg';
+
+                                        echo ' <div class="carousel-item" data-slide-number="'.$retour->id.'">
+                                          <img src="'.$img.'" class="img-fluid">
+                                                </div>';
+                                    endforeach;
+                                    ?>
+
+                                </div>
+                                <!-- main slider carousel nav controls -->
+
+
+                                <ul class="carousel-indicators list-inline mx-auto border px-2">
+                                    <?php
+                                    foreach($connexion->query('SELECT id, url_miniature, url FROM images') as $retour):
+
+                                        $img_miniature = isset($retour->url_miniature) ? str_replace('../../public/', ' ', $retour->url_miniature): 'assets/img/slide/slide-1.jpg';
+
+                                        echo '<li class="list-inline-item">
+                                          <a id="carousel-selector-'.$retour->id.'" data-slide-to="'.$retour->id.'" data-target="#myCarousel">
+                                              <img src="'.$img_miniature.'" class="img-fluid">
+                                          </a>
+                                            </li>';
+                                    endforeach;
+                                    ?>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 footer-links" style="margin-bottom: initial">
-                    <h4>Derniers Articles</h4>
-                    <div class="" style="margin-bottom: 30px;">
+                    <h4>Espace Membre</h4>
+                    <ul>
                         <?php
-                        foreach (App::getDB()->query('SELECT posts.id AS id_posts, title, content, post_type, likes, dislike, favourited, posts.created_at,
-                                                            user_id, category_id, images.id AS id_images, url_miniature, url FROM posts
-                                                     INNER JOIN images
-                                                     ON posts.id=images.post_id
-                                                     ORDER BY posts.id DESC LIMIT 3') AS $recent_post):
+                        $connexion = App::getDB();
+                        foreach($connexion->query('SELECT * FROM categories LIMIT 6') as $retour):
+                            ?>
+                        <li><i class="bx bx-chevron-right"></i><a class="categorie_footer" href="index.php?id_page=8&categories=<?=$retour->id;?>" data="<?=$retour->id;?>"><?=$retour->title;?>
+                                <?php
+                                $result = App::getDB()->rowCount('SELECT * FROM posts 
+                                                            INNER JOIN categories
+                                                            ON categories.id=posts.category_id
+                                                            WHERE categories.id='.$retour->id);
+                                echo '<span>('.$result.')</span></a></li>';
 
-                            echo '<div class="post-item clearfix">
-            <img style="width: 80px;float: left; margin-bottom: 10px" class="img-responsive img-thumbnail" src="'.str_replace('../../public/', '', $recent_post->url).'" alt="'.$recent_post->title.'" title="'.$recent_post->title.'">
-            <h4 style="font-size: 15px;margin-left: 95px;font-weight: bold; padding-bottom: initial"><a style="color: white;transition: 0.3s;" onclick="return false;" title="'.$recent_post->title.'" href="#">'.strtolower($recent_post->title).'</a></h4>
-            <time style="display: block;margin-left: 95px;font-style: italic;font-size: 14px;color: #9c847b;" datetime="2020-01-01">'.date('F j, Y', strtotime($recent_post->created_at)).'</time>
-        </div>';
                         endforeach;
                         ?>
-
-                    </div><!-- End sidebar recent posts-->
+                        <li><i class="bx bx-chevron-right"></i> <a href="index.php?id_page=8">Blog</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="#" data-toggle="modal" data-target="#login">Login</a></li>
+                    </ul>
                 </div>
 
-                <div class="col-lg-4 col-md-6 footer-newsletter">
-                    <h4>Join Our Newsletter</h4>
-                    <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                <div class="col-lg-3 col-md-6 footer-newsletter">
+                    <h4>NEWSLETTER</h4>
+                    <p>Pour recevoir des informations de l'institut salomon, veuillez nous envoyer votre adresse email</p>
                     <div class="alert alert-danger rapport_newsletter" style="display:none;"></div>
                     <form id="newsletters" method="post" onsubmit="return false;">
                         <input class="form-control" type="email" placeholder="email@domaine.com" required
@@ -75,7 +112,7 @@
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/flattern-multipurpose-bootstrap-template/ -->
-                Designed by <a href="https://bertin-mounok.com/">bertin.dev, Inc.</a>
+                Designed by <span>SALOMON INSTITUT</span>
             </div>
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">
@@ -131,3 +168,112 @@
         $("time.timeago").timeago();
     });
 </script>
+
+
+
+
+<!-- Login-->
+<div class="modal fade" id="login" tabindex="-1" role="application" aria-labelledby="login"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Connexion</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="p-5">
+                                    <div id="rapportLogin" class="alert alert-danger" style="display:none;"></div>
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Bienvenue!</h1>
+                                    </div>
+                                    <form class="user" id="singIn" method="post" onsubmit="return false;">
+                                        <div id="SingInForm">
+                                            <div class="form-group">
+                                                <input type="email" name="email" required class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Adresse Email">
+                                                <small id="output_emailSingIn"></small>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" name="password" required class="form-control form-control-user" id="exampleInputPassword" placeholder="Mot de passe">
+                                                <small id="output_passwordSingIn"></small>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox small">
+                                                    <input type="checkbox" name="t_and_c" value="1" class="custom-control-input" id="t_and_c">
+                                                    <label class="custom-control-label" for="t_and_c">Se souvenir</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <button id="login_send" class="btn btn-primary btn-user btn-block" type="submit" style="background: #8A2BE2">Login</button>
+                                                <center><img id="load_data_SingIn" src="assets/img/loader.gif" class="loader" style="display:none;"></center>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="text-center">
+                                        <a class="small" href="#" data-toggle="modal" data-target="#forgot-password">Mot de passe oublié?</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- forgot password-->
+<div class="modal fade" id="forgot-password" tabindex="-1" role="application" aria-labelledby="forgot-password"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Mot de passe oublié</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="p-5">
+                                    <div id="rapportPwdF" class="alert alert-danger" style="display:none;"></div>
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-2">Mot de passe oublié?</h1>
+                                        <p class="mb-4">Entrez simplement votre adresse e-mail ci-dessous et nous vous enverrons votre mot de passe!</p>
+                                    </div>
+                                    <form class="user" id="getPassword" method="post" onsubmit="return false;">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user" name="emailForget" id="emailForget" aria-describedby="emailHelp" placeholder="Entrer Adresse Email">
+                                            <em><small id="output_getEmail"></small></em>
+                                        </div>
+                                        <div class="form-group">
+                                            <button id="sendEmailForget" type="submit" class="btn btn-primary btn-user btn-block" style="background: #8A2BE2">Envoyer</button>
+                                            <center><img id="load_data_getEmail" src="assets/img/loader.gif" class="loader" style="display:none;"></center>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

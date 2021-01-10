@@ -15,7 +15,7 @@ $(function(){
 const success_msg = " ajouté avec succès.";
 const identite = "Identité du site";
 const menu = "Menu";
-const footer = "Pied de page";
+const footer = "Footer";
 const slide = "Slide";
 const categorie = "Categorie";
 const delete_msg = " Supprimé avec succès.";
@@ -166,8 +166,8 @@ $(function() {
             data:data,
             success:function(data){
                 var cat = $('#submenuRapport');
-                var result = $('#sous_menu');
-                var description_sous_menu = $('#description_sous_menu');
+                var result = $('#tel');
+                var description_sous_menu = $('#localisation');
                 var result_submenu1 = $('#result_submenu1');
                 var result_submenu2 = $('#result_submenu2');
                 if(data === 'success'){
@@ -1948,6 +1948,353 @@ $(function() {
                         cat.html('Apropos Modifié avec succès').slideDown().hide();
                         $('body').load('body.php?id=7', function() {
                         });
+                    }, 3000);
+                }else {
+                    if(cat.hasClass('alert-success')){
+                        cat.removeClass('alert-success');
+                        cat.addClass('alert-danger');
+                    }
+                    cat.html(data).show();
+                    $('.loader').hide();
+                    $('.currentSend').attr('value', 'Ajouter');
+                }
+            }
+
+        });
+    });
+});
+
+
+$(function () {
+   $('#allnotifs').on('click', function (e) {
+       e.preventDefault();
+       $.ajax({
+           url: 'controllers/traitement.php',
+           method: 'POST',
+           data: {
+               notifs: 1,
+           },
+           dataType: 'text',
+           beforeSend: function () {
+               console.log('before send');
+           },
+           success:function (data) {
+               $('#notif').html(data);
+           },
+           error: function(data){
+               console.log('Erreur de Chargement des notifications');
+           },
+           complete: function (data) {
+              console.log('chargement terminé')
+           }
+       });
+   });
+});
+
+
+
+$(function () {
+    /* ==========================================================================
+  GESTION DU SYSTEME D'INSCRIPTION
+  ========================================================================== */
+
+    $('#singUp input').focus(function () {
+        $('#statut').fadeOut(800);
+    });
+
+    //verification si le Nom est ok ou a déjà été utilisé
+    $('#nomSingUp').keyup(function () {
+        nomSingUp();
+    });
+
+    $('#prenomSingUp').keyup(function () {
+        prenomSingUp();
+    });
+
+    $('#emailSingUp').keyup(function () {
+        emailSingUp();
+    });
+
+    $('#passwordSingUp').keyup(function () {
+        passwordSingUp();
+    });
+
+    $('#passwordConfirmSingUp').keyup(function () {
+        passwordConfirmSingUp();
+    });
+
+    //fonction de verification du Nom en ajax
+    function nomSingUp() {
+        $.ajax({
+            type: 'post',
+            url: 'controllers/traitement.php?singUp=singUp',
+            data: {
+                'nomSingUp': $('#nomSingUp').val()
+            },
+            success: function (data) {
+                if(data=='success'){
+                    console.log(data);
+                    $('#output_nomSingUp').html("");
+                    return true;
+                }
+                else{
+                    $('#output_nomSingUp').css({
+                        'color': 'red',
+                        'font-weight': 'bold',
+                        'margin': 'initial',
+                        'padding': 'initial'
+                    }).html(data);
+                }
+            }
+        });
+
+
+    }
+
+    //fonction de verification du Prenom en ajax
+    function prenomSingUp() {
+        $.ajax({
+            type: 'post',
+            url: 'controllers/traitement.php?singUp=singUp',
+            data: {
+                'prenomSingUp': $('#prenomSingUp').val()
+            },
+            success: function (data) {
+                if(data=='success'){
+                    $('#output_prenomSingUp').html("");
+                    console.log(data);
+                    return true;
+                }
+                else{
+                    $('#output_prenomSingUp').css('color', 'red').html(data);
+                }
+            }
+        });
+
+
+    }
+
+    //fonction de verification de l'email en ajax
+    function emailSingUp() {
+        $.ajax({
+            type: 'post',
+            url: 'controllers/traitement.php?singUp=singUp',
+            data: {
+                'emailSingUp': $('#emailSingUp').val()
+            },
+            success: function (data) {
+                if(data=='success'){
+                    console.log(data);
+                    $('#output_emailSingUp').html("");
+                    return true;
+                }
+                else{
+                    $('#output_emailSingUp').css('color', 'red').html(data);
+                }
+            }
+        });
+
+
+    }
+
+    //fonction de verification du password en ajax
+    function passwordSingUp() {
+
+        if($('#passwordSingUp').val().length < 5){
+            $('#output_passwordSingUp').css('color', 'red').html("<br>Trop court (5 caractères minimum.)");
+        }else if($('#passwordConfirmSingUp').val()!='' && $('#passwordConfirmSingUp').val()!= $('#passwordSingUp').val()){
+            $('#output_passwordSingUp').css('color', 'red').html('<br>Les deux mots de passe sont différents');
+            $('#output_passwordConfirmSingUp').css('color', 'red').html('<br>Les deux mots de passe sont différents');
+        }else{
+            $('#output_passwordSingUp').html("");
+            $('#output_passwordConfirmSingUp').html("");
+            console.log('vérification validé');
+        }
+    }
+
+
+
+    //fonction de verification du password confirme en ajax
+    function passwordConfirmSingUp() {
+        $.ajax({
+            type: 'post',
+            url: 'controllers/traitement.php?singUp=singUp',
+            data: {
+                'passwordSingUp': $('#passwordSingUp').val(),
+                'passwordConfirmSingUp': $('#passwordConfirmSingUp').val()
+            },
+            success: function (data) {
+                if(data=='success'){
+                    console.log('mot de passe et mot de passe de confirmations sont conformes');
+                    /*$('#output_passwordSingUp').html('<img src="../Public/img/icons/check.png" title="validé" width="15" class="small_image" alt=""> ');
+                    $('#output_passwordConfirmSingUp').html('<img src="../Public/img/icons/check.png" title="validé" width="15" class="small_image" alt=""> ');*/
+                    return true;
+                }
+                else{
+                    $('#output_passwordConfirmSingUp').css('color', 'red').html(data);
+                }
+            }
+        });
+
+
+    }
+
+    $('#singUp').submit(function () {
+        var statut1 = $('#statut');
+        var nom = $('#nomSingUp').val(), prenom = $('#prenomSingUp').val(), email1 = $('#emailSingUp').val(), password1 = $('#passwordSingUp').val();
+
+
+        if (nom == '' || prenom == '' || email1 == '' || password1 == '') {
+            statut1.html('Veuillez Remplir Tous les Champs').fadeIn(400);
+        }
+        else {
+            var $form = $(this);
+            var formdata = (window.FormData) ? new FormData($form[0]) : null;
+            var donnee = (formdata !== null) ? formdata : $form.serialize();
+
+            $.ajax({
+                type: 'post',
+                url: 'controllers/traitement.php?singUpSubmit=singUp',
+                contentType: false, // obligatoire pour de l'upload
+                processData: false, // obligatoire pour de l'upload
+                data: donnee,
+                beforeSend: function () {
+                    $('#enreg').html('En cours...');
+                    $('#load_data_SingUp').show().fadeIn();
+                },
+                success: function (data) {
+                    if(data != 'success'){
+                        statut1.html(data).fadeIn(400);
+                        $('#enreg').html('Envoyer');
+                        $('#load_data_SingUp').show().fadeOut();
+                    }
+                    else {
+                        $('#enreg').html('Envoyer');
+                        $('#load_data_SingUp').show().fadeOut();
+                        statut1.html("Enregistrement éffectué avec succès");
+                        setTimeout(function () {
+                            location.href='index.php';
+                        }, 3000);
+
+                    }
+                }
+
+            });
+
+        }
+
+
+    });
+});
+
+
+
+/* ==========================================================================
+GESTION DE L AJOUT DU MESSAGE D'ACCUEIL
+========================================================================== */
+$(function() {
+    $('#id_msg').on('submit', function (e) {
+        /* On empêche le navigateur de soumettre le formulaire*/
+        e.preventDefault();
+        $('.siteWebUploads').show();
+        $('.currentSend').attr('value', 'En cours...');
+        var $form = $(this);
+        var formdata = (window.FormData) ? new FormData($form[0]) : null;
+        var data = (formdata !== null) ? formdata : $form.serialize();
+
+        $.ajax({
+            url: $form.attr('action'),
+            type: $form.attr('method'),
+            contentType: false, /* obligatoire pour de l'upload*/
+            processData: false, /* obligatoire pour de l'upload*/
+            dataType: 'html', /* selon le retour attendu*/
+            data:data,
+            success:function(data){
+                var cat = $('#rapportMsg');
+                if(data === 'success'){
+                    $('.uploads').hide();
+                    cat.removeClass('alert-danger');
+                    cat.addClass('alert-success');
+                    $('.currentSend').attr('value', 'Publier');
+                    cat.html('le message a été ajouté avec succès.').show();
+                    setTimeout(function () {
+                        cat.html('le message a été ajouté avec succès.').slideDown().hide();
+                        $('body').load('index.php', function() {
+                        });
+                    }, 3000);
+
+                } else if(data === 'success-update'){
+                    $('.uploads').hide();
+                    cat.removeClass('alert-danger');
+                    cat.addClass('alert-info');
+                    $('.currentSend').attr('value', 'Publier');
+                    cat.html('le message a été Modifié avec succès.').show();
+                    setTimeout(function () {
+                        cat.html('le message a été Modifié avec succès.').slideDown().hide();
+                        $('body').load('index.php', function() {
+                        });
+                    }, 3000);
+                }else {
+                    if(cat.hasClass('alert-success')){
+                        cat.removeClass('alert-success');
+                        cat.addClass('alert-danger');
+                    }
+                    cat.html(data).show();
+                    $('.uploads').hide();
+                    $('.currentSend').attr('value', 'Publier');
+                }
+            }
+
+        });
+    });
+});
+
+
+
+/* ==========================================================================
+GESTION DES MESSAGES
+========================================================================== */
+$(function() {
+    $('.form_msg, .form_TSW, .form_S, .form_Ft').on('submit', function (e) {
+        /* On empêche le navigateur de soumettre le formulaire*/
+        e.preventDefault();
+        $('.loader').show();
+        $('.currentSend').attr('value', 'Encours...');
+        var $form = $(this);
+        var formdata = (window.FormData) ? new FormData($form[0]) : null;
+        var data = (formdata !== null) ? formdata : $form.serialize();
+
+        $.ajax({
+            url: $form.attr('action'),
+            type: $form.attr('method'),
+            contentType: false, /* obligatoire pour de l'upload*/
+            processData: false, /* obligatoire pour de l'upload*/
+            dataType: 'html', /* selon le retour attendu*/
+            data:data,
+            success:function(data){
+                var cat = $('#rapportMsg, #rapportTSW, #rapportS, #rapportFt');
+                if(data === 'success'){
+                    $('.loader').hide();
+                    cat.removeClass('alert-danger');
+                    cat.addClass('alert-success');
+                    $('.currentSend').attr('value', 'Ajouter');
+                    cat.html('Un élément a été ajouté avec succès.').show();
+                    setTimeout(function () {
+                        cat.html('Un élément a été ajouté avec succès.').slideDown().hide();
+                        //$('body').load('module.php?name=formation', function() {});
+                        $(location).attr('href',"list.php?id=1");
+                    }, 3000);
+
+                } else if(data === 'success-update'){
+                    $('.loader').hide();
+                    cat.removeClass('alert-danger');
+                    cat.addClass('alert-info');
+                    $('.currentSend').attr('value', 'Ajouter');
+                    cat.html('Un élément a été Modifié avec succès').show();
+                    setTimeout(function () {
+                        cat.html('Un élément a été Modifié avec succès').slideDown().hide();
+                        //$('body').load('module.php?name=formation', function() {});
+                        $(location).attr('href',"list.php?id=1");
                     }, 3000);
                 }else {
                     if(cat.hasClass('alert-success')){

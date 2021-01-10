@@ -1,5 +1,22 @@
 <?php
 require '../app/config/Config_Server.php';
+session_start();
+
+if(isset($_SESSION['ID_USER'])) {
+    $user_id = intval($_SESSION['ID_USER']);
+    $last_name = $_SESSION['NOM_USER'];
+    $first_name = $_SESSION['PRENOM_USER'];
+}
+else if(isset($_COOKIE['ID_USER'])) {
+    $user_id = intval($_COOKIE['ID_USER']);
+    $last_name = $_COOKIE['NOM_USER'];
+    $first_name = $_COOKIE['PRENOM_USER'];
+}
+else {
+    $user_id = 0;
+    $last_name = "";
+    $first_name = "";
+}
 
 if(isset($_GET['id'])){
     define('HEADER_ID', $_GET['id']);
@@ -14,8 +31,11 @@ if(isset($_GET['id'])){
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Institut Salomon, IS, formation, centre de formation agréé, minfop, certification, vae, paj, va">
+    <meta name="author" content="Bertin Mounok, Bertin-Mounok, Pipo Ndemba, Supers-Pipo, bertin.dev, bertin-dev, Ngando Mounok Hugues Bertin">
+    <meta name="copyright" content="© <?=date('Y', time());?>, bertin.dev, Inc.">
+
+    <title>Tableau de Bord - INSTITUT SALOMON</title>
 
     <title>Admin - Tableau de Bord</title>
 

@@ -107,11 +107,9 @@
                                       action="controllers/traitement.php?menu=menu" method="post">
 
                                     <div class="form-group">
-                                        <label class="my-1 mr-2" for="listmenu">Sélectionner un Menu ou
-                                            sous-menu</label>
+                                        <label class="my-1 mr-2" for="listmenu">Sélectionner un Menu</label>
                                         <select class="custom-select my-1 mr-sm-2" id="listmenu" name="listmenu">
                                             <option selected value="1">Menu</option>
-                                            <option value="2">Sous Menu</option>
                                         </select>
                                     </div>
 
@@ -180,38 +178,47 @@
 
 
                                             <div class="form-group">
-                                                <label class="my-1 mr-2" for="ref_menu">Selectionner le Menu
-                                                    Concerné</label>
-                                                <select class="custom-select my-1 mr-sm-2" id="ref_menu"
-                                                        name="ref_menu">
-                                                    <?php
-                                                    foreach (App::getDB()->query('SELECT id, titre FROM headers ORDER BY id DESC') as $menu):
-                                                        echo '<option value="' . $menu->id . '">' . $menu->titre . '</option>';
-                                                    endforeach;
-                                                    ?>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="my-1 mr-2" for="footer_b">Sélectionner un Bloc</label>
+                                                <label class="my-1 mr-2" for="footer_b">Sélectionner</label>
                                                 <select class="custom-select my-1 mr-sm-2" id="footer_b"
                                                         name="footer_b">
-                                                    <option value="1">Bloc 1</option>
-                                                    <option value="2">Bloc 2</option>
-                                                    <option value="3">Bloc 3</option>
+                                                    <option value="1">Contact et Localisation</option>
                                                 </select>
                                             </div>
 
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="sous_menu" name="sous_menu"
-                                                       aria-describedby="sous_menu" placeholder="Titre du pied de page">
+                                                <input type="text" class="form-control" id="tel" name="tel"
+                                                       aria-describedby="tel" placeholder="Telephone">
                                                 <div id="result_submenu1"></div>
                                             </div>
 
                                             <div class="form-group">
-                                                <textarea class="form-control" aria-describedby="description_sous_menu"
-                                                          name="description_sous_menu" id="description_sous_menu"
-                                                          cols="5" rows="3" placeholder="Description"></textarea>
+                                                <input type="email" class="form-control" id="email" name="email"
+                                                       aria-describedby="email" placeholder="Email">
+                                                <div id="result_submenu3"></div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input type="url" class="form-control" id="url" name="url"
+                                                       aria-describedby="url" placeholder="Site web">
+                                                <div id="result_submenu4"></div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="h_ouverture">Heure d'ouverture</label>
+                                                <input type="time" class="form-control" id="h_ouverture" name="h_ouverture"
+                                                       aria-describedby="h_ouverture" placeholder="Heure d'ouverture">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="h_fermeture">Heure de fermeture</label>
+                                                <input type="time" class="form-control" id="h_fermeture" name="h_fermeture"
+                                                       aria-describedby="h_fermeture" placeholder="Heure fermeture">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <textarea class="form-control" aria-describedby="localisation"
+                                                          name="localisation" id="localisation"
+                                                          cols="5" rows="3" placeholder="Localisation"></textarea>
                                                 <div id="result_submenu2"></div>
                                             </div>
 
@@ -297,153 +304,6 @@
                 </div>
             </div>
 
-        </div>
-    </div>
-</div>
-
-
-<!-- PIED DE PAGE -->
-<!-- Bloc 1-->
-<div class="modal fade" id="footer_b1" tabindex="-1" role="dialog" aria-labelledby="footer_b1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Bloc 1</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row justify-content-center">
-
-                    <div class="card o-hidden border-0 shadow-lg my-5">
-                        <div class="card-body p-0">
-                            <!-- Nested Row within Card Body -->
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="p-5">
-
-                                        <form class="user" role="form">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="titre_b1"
-                                                       aria-describedby="titre_b1" placeholder="Titre Pied de page">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <textarea name="desc_b1" class="form-control" id="desc_b1"
-                                                          aria-describedby="desc_b1" cols="30" rows="5"
-                                                          placeholder="Description Titre"></textarea>
-                                            </div>
-                                            <input type="submit" class="btn btn-primary btn-user btn-block"
-                                                   value="Publier"/>
-                                        </form>
-                                        <hr>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Bloc 2-->
-<div class="modal fade" id="footer_b2" tabindex="-1" role="application" aria-labelledby="footer_b2" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Bloc 2</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row justify-content-center">
-
-                    <div class="card o-hidden border-0 shadow-lg my-5">
-                        <div class="card-body p-0">
-                            <!-- Nested Row within Card Body -->
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="p-5">
-
-                                        <form class="user" role="form">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="titre_b2"
-                                                       aria-describedby="titre_b2"
-                                                       placeholder="Titre Pied de page Bloc 2">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <textarea name="desc_b2" class="form-control" id="desc_b2"
-                                                          aria-describedby="desc_b2" cols="30" rows="5"
-                                                          placeholder="Description Titre Bloc 2"></textarea>
-                                            </div>
-                                            <input type="submit" class="btn btn-primary btn-user btn-block"
-                                                   value="Publier"/>
-                                        </form>
-                                        <hr>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Bloc 3-->
-<div class="modal fade" id="footer_b3" tabindex="-1" role="alertdialog" aria-labelledby="footer_b3" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Bloc 3</h5>
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row justify-content-center">
-                    <div class="card o-hidden border-0 shadow-lg my-5">
-                        <div class="card-body p-0">
-                            <!-- Nested Row within Card Body -->
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="p-5">
-
-                                        <form class="user" role="form">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="titre_b3"
-                                                       aria-describedby="titre_b3"
-                                                       placeholder="Titre Pied de page Bloc 3">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <textarea name="desc_b3" class="form-control" id="desc_b3"
-                                                          aria-describedby="desc_b3" cols="30" rows="5"
-                                                          placeholder="Description Titre Bloc 3"></textarea>
-                                            </div>
-                                            <input type="submit" class="btn btn-primary btn-user btn-block"
-                                                   value="Publier"/>
-                                        </form>
-                                        <hr>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -591,14 +451,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -1416,3 +1268,195 @@
     </div>
 </div>
 
+
+<!-- ajouter PAJ-->
+<div class="modal fade" id="paj" tabindex="-1" role="application" aria-labelledby="paj"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Apropos</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="justify-content-center">
+
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+
+                            <div class="p-5">
+                                <div id="rapportA2" class="alert alert-danger" style="display:none;"></div>
+                                <form class="user form_A" role="form"
+                                      action="controllers/traitement.php?apropos=apropos" method="post" enctype="multipart/form-data">
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="libelle" id="libelle"
+                                               aria-describedby="libelle" placeholder="Libelle*" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="description"></label>
+                                        <textarea name="description" class="form-control" id="description" aria-describedby="description" cols="30" rows="5" placeholder="Description Apropos*"></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="avatar">Image descriptive</label>
+                                        <input type="file" class="form-control" name="avatar" id="avatar"
+                                               aria-describedby="avatar" placeholder="avatar*">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary btn-user btn-block currentSend"
+                                               value="Ajouter"/>
+                                        <center><img src="img/loader.gif" class="loader" style="display:none;"></center>
+                                    </div>
+
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Register-->
+<div class="modal fade" id="register" tabindex="-1" role="application" aria-labelledby="register"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Souscrire</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="p-5">
+                                    <div id="statut" class="alert alert-info"> Veuillez remplir tous les champs</div>
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Créer un compte</h1>
+                                    </div>
+                                    <form class="user" id="singUp" method="post" onsubmit="return false;">
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="text" name="nomSingUp" class="form-control form-control-user" id="nomSingUp" placeholder="Nom">
+                                                <em><small id="output_nomSingUp"></small></em>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="text" name="prenomSingUp" class="form-control form-control-user" id="prenomSingUp" placeholder="Prenom">
+                                                <em><small id="output_prenomSingUp"></small></em>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="profession" class="form-control form-control-user" id="profession" placeholder="Profession">
+                                            <em><small id="output_profession"></small></em>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" name="emailSingUp" class="form-control form-control-user" id="emailSingUp" placeholder="Adresse Email">
+                                            <em><small id="output_emailSingUp"></small></em>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="password" name="passwordSingUp" class="form-control form-control-user" id="passwordSingUp" placeholder="Mot de passe">
+                                                <em><small id="output_passwordSingUp"></small></em>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="password" name="passwordConfirmSingUp" class="form-control form-control-user" id="passwordConfirmSingUp" placeholder="Mot de passe de Confirmation">
+                                                <em><small id="output_passwordConfirmSingUp"></small></em>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <button id="enreg" class="btn btn-primary btn-user btn-block" type="submit" style="background: #8A2BE2">Envoyer</button>
+                                            <center><img id="load_data_SingUp" src="img/loader.gif" class="loader" style="display:none;"></center>
+                                        </div>
+                                    </form>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="#" data-toggle="modal" data-target="#forgot-password">Mot de passe oublié?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="#" data-toggle="modal" data-target="#register">Avez-vous déjà un compte? Connectez-vous!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Message d'accueil-->
+<div class="modal fade" id="msg" tabindex="-1" role="dialog" aria-labelledby="msg" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Message d'accueil</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="p-5">
+                                        <div id="rapportMsg" class="alert alert-danger"
+                                             style="display:none;"></div>
+                                        <form id="id_msg" class="user" role="form"
+                                              action="controllers/traitement.php?msg=id_msg" method="post">
+
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" name="titre_msg"
+                                                       id="titre_msg" aria-describedby="titre_msg" maxlength="15"
+                                                       placeholder="Titre">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <textarea class="form-control" name="message1" id="message" cols="30" rows="10"
+                                                          placeholder="Message" required></textarea>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input type="submit"
+                                                       class="btn btn-primary btn-user btn-block currentSend"
+                                                       value="Publier"/>
+                                                <center><img src="img/loader.gif" class="uploads" style="display:none;"></center>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

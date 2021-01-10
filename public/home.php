@@ -23,7 +23,7 @@ define('MAX_CHARACTER1', 20);
               $slide .= '<div class="carousel-item" style="background-image: url('.$img.');">
           <div class="carousel-container">
             <div class="carousel-content animate__animated animate__fadeInUp">
-              <h2>Welcome to <span>'.$retour->titre.'</span></h2>
+              <h2><span>'.$retour->titre.'</span></h2>
               <p>'.$retour->description.'</p>
               <div class="text-center"><a href="" class="btn-get-started">Lire la Suite</a></div>
             </div>
@@ -81,8 +81,8 @@ define('MAX_CHARACTER1', 20);
                   foreach($connexion->query('SELECT libelle, description, img_url FROM formation
                                                       WHERE headers_id ="'.$_ENV['id_page'].'" LIMIT 2') as $retour):
 
-                      $img = isset($retour->img_url) ? str_replace('../../public/', ' ', $retour->img_url): '';
-
+                      //$img = isset($retour->img_url) ? str_replace('../../public/', ' ', $retour->img_url): '../public/assets/img/features-1.png';
+                      $img = '../public/assets/img/features-1.png';
                       echo '<div class="col-lg-6">
                       <div class="card mb-3" style="max-width: 540px;">
                           <div class="row no-gutters">
@@ -93,7 +93,7 @@ define('MAX_CHARACTER1', 20);
                                   <div class="card-body">
                                       <h5 class="card-title">'.$retour->libelle.'</h5>
                                       <p class="card-text">'.$retour->description.'</p>
-                                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                      <!--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
                                   </div>
                               </div>
                           </div>
@@ -113,13 +113,104 @@ define('MAX_CHARACTER1', 20);
           <div class="container">
               <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12">
-                      <div class="section-headline text-center">
-                          <h2>Pricing Table</h2>
+                      <div class="sp-module  jd-title">
+                          <h3 class="sp-module-title">NOS PROGRAMMES</h3>
                       </div>
                   </div>
               </div>
               <div class="row">
-                  <div class="col-md-4 col-sm-4 col-xs-12">
+                  <?php
+                  $connexion = \App::getDB();
+                  foreach($connexion->query('SELECT formation.id, formation.libelle AS fLbl, formation.description AS fDesc, 
+                                                             formation.prix AS fPrix, formation.etat AS fEtat, formation.frequence_paiement_id, formation.module_id, 
+                                                             formation.img_url AS fImg_url, formation.headers_id, formation.created_at, 
+                                                             formation.updated_at, fp.id, fp.libelle AS fpLbl, m.id AS mod_id, m.libelle AS mLbl, 
+                                                             m.description AS mDesc, m.frequence_paiement_id, m.prix AS mPrix, m.duree AS mDuree, m.created_at AS m_create,
+                                                             m.updated_at 
+                                                      FROM formation
+                                                      INNER JOIN frequence_paiement fp 
+                                                      ON fp.id = formation.frequence_paiement_id
+                                                      INNER JOIN module m 
+                                                      ON formation.module_id = m.id
+                                                      WHERE headers_id="'.$_ENV['id_page'].'"
+                                                      GROUP BY formation.module_id
+                                                      ORDER BY m.id DESC 
+                                                      LIMIT 3 
+                                                      ') as $retour):
+                      echo '<div class="col-md-4 col-sm-4 col-xs-12">';
+
+                      if((time()-$retour->m_create) <= 100000){
+                            echo '<div class="pri_table_list active">
+                                  <span class="saleon">Nouveauté</span>
+                          <h3 title="'.$retour->mDesc.'">'.$retour->mLbl.' <br /> <span>'.$retour->mPrix.'<sub>Fcfa</sub> / ';
+
+                    if(intval($retour->mDuree)==0)
+                          echo '';
+                      else
+                          echo $retour->mDuree;
+
+                      echo ' '.$retour->fpLbl.'</span></h3>
+                          <ol>';
+
+
+
+                  foreach($connexion->query('SELECT f.id, f.libelle AS flibelle, f.description AS fdecription, f.prix, f.etat, f.frequence_paiement_id, f.module_id, f.img_url, f.headers_id, f.created_at, f.updated_at,
+                                                             m.id, m.libelle, m.description, m.frequence_paiement_id, m.prix, m.duree, m.created_at, m.updated_at
+                                                      FROM formation f
+                                                      INNER JOIN module m 
+                                                      ON f.module_id = m.id
+                                                      WHERE f.module_id ='.$retour->mod_id.'
+                                                      ORDER BY f.id DESC 
+                                                      ') as $list):
+
+                      if($list->etat=="0")
+                          echo '<li class="check" title="'.$list->fdecription.'">'.$list->flibelle.'</li>';
+                      else
+                          echo '<li class="check cross" title="'.$list->fdecription.'">'.$list->flibelle.'</li>';
+                      endforeach;
+
+
+                          echo '</ol>
+                      </div>';
+                      } else{
+                            echo '<div class="pri_table_list">
+                          <h3 title="'.$retour->mDesc.'">'.$retour->mLbl.' <br /> <span>'.$retour->mPrix.'<sub>Fcfa</sub> / ';
+
+                    if(intval($retour->mDuree)==0)
+                          echo '';
+                      else
+                          echo $retour->mDuree;
+
+                      echo ' '.$retour->fpLbl.'</span></h3>
+                          <ol>';
+
+
+
+                  foreach($connexion->query('SELECT f.id, f.libelle AS flibelle, f.description AS fdecription, f.prix, f.etat, f.frequence_paiement_id, f.module_id, f.img_url, f.headers_id, f.created_at, f.updated_at,
+                                                             m.id, m.libelle, m.description, m.frequence_paiement_id, m.prix, m.duree, m.created_at, m.updated_at
+                                                      FROM formation f
+                                                      INNER JOIN module m 
+                                                      ON f.module_id = m.id
+                                                      WHERE f.module_id ='.$retour->mod_id.'
+                                                      ORDER BY f.id DESC 
+                                                      ') as $list):
+
+                      if($list->etat=="0")
+                          echo '<li class="check" title="'.$list->fdecription.'">'.$list->flibelle.'</li>';
+                      else
+                          echo '<li class="check cross" title="'.$list->fdecription.'">'.$list->flibelle.'</li>';
+                      endforeach;
+
+
+                          echo '</ol>
+                      </div>';
+                      }
+
+
+                  echo '</div>';
+                  endforeach;
+                  ?>
+                  <!--<div class="col-md-4 col-sm-4 col-xs-12">
                       <div class="pri_table_list">
                           <h3>basic <br /> <span>$80 / month</span></h3>
                           <ol>
@@ -167,64 +258,13 @@ define('MAX_CHARACTER1', 20);
                           </ol>
                           <button>sign up now</button>
                       </div>
-                  </div>
+                  </div>-->
               </div>
           </div>
       </div><!-- End Pricing Section -->
 
 
-      <!-- ======= Programmes de formation ======= -->
-      <section id="pricing" class="pricing" style="padding-top: 10px;padding-bottom: 10px">
-          <div class="sp-module  jd-title">
-              <h3 class="sp-module-title">NOS PROGRAMMES</h3>
-          </div>
-          <div class="container">
-              <div class="row">
-                  <?php
-                  $connexion = \App::getDB();
-                  foreach($connexion->query('SELECT formation.id, formation.libelle AS fLbl, formation.description AS fDesc, 
-                                                             formation.prix AS fPrix, formation.etat AS fEtat, formation.frequence_paiement_id, formation.module_id, 
-                                                             formation.img_url AS fImg_url, formation.headers_id, formation.created_at, 
-                                                             formation.updated_at, fp.id, fp.libelle AS fpLbl, m.id, m.libelle AS mLbl, 
-                                                             m.description AS mDesc, m.frequence_paiement_id, m.prix AS mPrix, m.duree AS mDuree, m.created_at,
-                                                             m.updated_at 
-                                                      FROM formation
-                                                      INNER JOIN frequence_paiement fp 
-                                                      ON fp.id = formation.frequence_paiement_id
-                                                      INNER JOIN module m 
-                                                      ON formation.module_id = m.id
-                                                      WHERE headers_id="'.$_ENV['id_page'].'"
-                                                      ORDER BY formation.id DESC 
-                                                      LIMIT 3 
-                                                      ') as $retour):
-
-                      echo '<div class="col-lg-4 col-md-6 mt-4 mt-md-0">
-                          <div class="col-8 offset-2 text-center pf" data-aos="fade-up">
-                          <h3 style="margin-bottom: initial;" title="'.$retour->mDesc.'">'.$retour->mLbl.'</h3></div>
-                      <div class="box" data-aos="fade-right" style="border-radius: 58px;">
-                          <h4>'.$retour->mPrix.'<sub>Fcfa</sub><span> / ';
-                      if(intval($retour->mDuree)==0)
-                          echo '';
-                      else
-                          echo $retour->mDuree;
-
-                      echo ' '.$retour->fpLbl.'</span></h4>
-                          <ul>
-                              <li title="'.$retour->fDesc.'">'.$retour->fLbl.'</li>
-                          </ul>
-                          <!--<div class="btn-wrap">
-                              <a href="#" class="btn-buy">Buy Now</a>
-                          </div>-->
-                      </div>
-                  </div>';
-                  endforeach;
-                  ?>
-              </div>
-
-          </div>
-      </section><!-- End Pricing Section -->
-
-
+      <!-- VIE ASSOCIATIVE -->
     <section id="" class="" style="padding-top: 10px;padding-bottom: 10px">
           <div class="sp-module  jd-title">
               <h3 class="sp-module-title">VIE ASSOCIATIVE</h3>
@@ -405,12 +445,13 @@ define('MAX_CHARACTER1', 20);
           <div class="container" data-aos="fade-up">
 
               <div class="sp-module  jd-title">
-                  <h3 class="sp-module-title">ACTUALITE <strong>INSTITUT SALOMON</strong></h3>
+                  <h3 class="sp-module-title">PUBLICATIONS <strong>INSTITUT SALOMON</strong></h3>
               </div>
 
               <div class="row" data-aos="zoom-in" data-aos-delay="100">
 
                   <?php
+                  $myContent = '';
                   foreach (App::getDB()->query('SELECT posts.id AS id_posts, posts.title AS post_title, content, post_type, likes, dislike, favourited, posts.created_at,
                                                             user_id, category_id, images.id AS id_images, url_miniature, url, u.first_name, u.last_name, u.avatar, c.title AS cat_title
                                                         FROM posts
@@ -421,7 +462,8 @@ define('MAX_CHARACTER1', 20);
                                                         INNER JOIN users u 
                                                         ON posts.user_id = u.id
                                                         ORDER BY posts.id DESC LIMIT 3') as $retour):
-
+                      //$myContent .= htmlspecialchars_decode($retour->content);
+                      $myContent .= $retour->content;
                       echo '<div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
                       <div class="course-item">
                           <img src="' . str_replace('../../public/', '', $retour->url) . '" alt="' . $retour->post_title . '" title="' . $retour->post_title . '" class="img-fluid">
@@ -431,8 +473,8 @@ define('MAX_CHARACTER1', 20);
                                   <p class="text-info"><time class="timeago" datetime="' . date('c', strtotime($retour->created_at)) . '">' . date('j F Y à H:m', strtotime($retour->created_at)) . '</time></p>
                               </div>
 
-                              <h3><a href="course-details.html">'.$retour->post_title.'</a></h3>
-                              <p>'. substr(htmlspecialchars_decode($retour->content), MIN_CHARACTER1, MAX_CHARACTER1).'</p>
+                              <h3><a href="#" onclick="return false;">'.$retour->post_title.'</a></h3>
+                              <p>'. substr($myContent, 0, 500).'</p>
                               <a href="index.php?id_page=8&posts_id='.$retour->id_posts.'" title="'.$retour->post_title.'">Lire la suite</a>
                               
                               <div class="trainer d-flex justify-content-between align-items-center">
@@ -535,7 +577,7 @@ define('MAX_CHARACTER1', 20);
                                                        disliked_posts, favourites, favourite_categories, 
                                                        preference, created_at, updated_at, avatar, newsletter_id,
                                                        objet, message, ip FROM users
-                                                      WHERE user_type="0"') as $retour):
+                                                      WHERE user_type="0" LIMIT 4') as $retour):
                       $img = isset($retour->avatar) ? str_replace('../../public/', ' ', $retour->avatar): '';
 
                       echo '<div class="col-lg-3 col-md-6 d-flex align-items-stretch">
