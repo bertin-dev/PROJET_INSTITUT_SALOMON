@@ -2684,3 +2684,65 @@ div.marquee > div.marquee-text {
 a[aria-expanded='false'] > .expand_caret {
   transform: scale(1.6) rotate(-90deg);
 }
+
+
+
+.error {
+  color: #5a5c69;
+  font-size: 7rem;
+  position: relative;
+  line-height: 1;
+  width: 12.5rem;
+}
+.ml-auto, .mx-auto {
+  margin-left: auto !important;
+}
+.mr-auto, .mx-auto {
+  margin-right: auto !important;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+
+.error::before {
+
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: 1px 0 #4e73df;
+  top: 0;
+  color: #5a5c69;
+  background: #f8f9fc;
+  overflow: hidden;
+  clip: rect(0,900px,0,0);
+  animation: noise-anim-2 3s infinite linear alternate-reverse;
+
+}
+
+
+.error::after {
+
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -1px 0 #e74a3b;
+  top: 0;
+  color: #5a5c69;
+  background: #f8f9fc;
+  overflow: hidden;
+  clip: rect(0,900px,0,0);
+  animation: noise-anim 2s infinite linear alternate-reverse;
+
+}
+
+.text-gray-800 {
+  color: #5a5c69 !important;
+}
+.mb-5, .my-5 {
+  margin-bottom: 3rem !important;
+}
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}

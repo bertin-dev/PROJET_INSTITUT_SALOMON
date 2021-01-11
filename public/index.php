@@ -28,15 +28,11 @@ switch($page){
         break;
 
     case 2:
-        require 'programmes.php';
+        require 'apropos.php';
         break;
 
     case 3:
-        require 'vae.php';
-        break;
-
-    case 4:
-        require 'langues.php';
+        require 'programmes.php';
         break;
 
     case 5:
@@ -47,10 +43,6 @@ switch($page){
         require 'va.php';
         break;
 
-    case 7:
-        require 'apropos.php';
-        break;
-
     case 8:
         require 'blog.php';
         break;
@@ -58,6 +50,18 @@ switch($page){
     case 10:
         require 'contact.php';
         break;
+
+
+    case 11:
+        require 'vae.php';
+        break;
+
+    case 12:
+        require 'langues.php';
+        break;
+
+    default:
+        require '404.php';
 
     /*case 9:
         require '../Pages/Service.php';
