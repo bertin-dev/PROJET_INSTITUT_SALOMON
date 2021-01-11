@@ -142,15 +142,7 @@ define('MAX_CHARACTER1', 20);
                       if((time()-$retour->m_create) <= 100000){
                             echo '<div class="pri_table_list active">
                                   <span class="saleon">Nouveauté</span>
-                          <h3 title="'.$retour->mDesc.'">'.$retour->mLbl.' <br /> <span>'.$retour->mPrix.'<sub>Fcfa</sub> / ';
-
-                    if(intval($retour->mDuree)==0)
-                          echo '';
-                      else
-                          echo $retour->mDuree;
-
-                      echo ' '.$retour->fpLbl.'</span></h3>
-                          <ol>';
+                          <h3 title="'.$retour->mDesc.'">'.$retour->mLbl.' <br /> </h3><ol>';
 
 
 
@@ -160,7 +152,7 @@ define('MAX_CHARACTER1', 20);
                                                       INNER JOIN module m 
                                                       ON f.module_id = m.id
                                                       WHERE f.module_id ='.$retour->mod_id.'
-                                                      ORDER BY f.id DESC 
+                                                      ORDER BY f.id ASC 
                                                       ') as $list):
 
                       if($list->etat=="0")

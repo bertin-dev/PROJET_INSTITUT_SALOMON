@@ -10,12 +10,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8385d80-414e-4851-bf3e-8475ca9b91c0" name="Default Changelist" comment="&#10;modification du footer effectué avec succès">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="e8385d80-414e-4851-bf3e-8475ca9b91c0" name="Default Changelist" comment="Ajout de la page 404">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/404.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/404.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/programmes.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/programmes.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +102,7 @@
       <workItem from="1608470050147" duration="49000" />
       <workItem from="1609584124540" duration="2824000" />
       <workItem from="1609837430946" duration="80000" />
-      <workItem from="1610287013299" duration="10815000" />
+      <workItem from="1610287013299" duration="18823000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1607084401421</created>
@@ -161,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610346020279</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Ajout de la page 404">
+      <created>1610351317288</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1610351317288</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +195,8 @@
     <MESSAGE value="correction quelques elements" />
     <MESSAGE value="modification de la taille du titre de la page d'accueil et de la marge de droite" />
     <MESSAGE value="&#10;modification du footer effectué avec succès" />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;modification du footer effectué avec succès" />
+    <MESSAGE value="Ajout de la page 404" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajout de la page 404" />
   </component>
   <component name="WindowStateProjectService">
     <state x="493" y="248" key="#Composer" timestamp="1605515947269">
