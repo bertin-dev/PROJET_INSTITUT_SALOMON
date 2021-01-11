@@ -10,6 +10,8 @@
             <a href="<?= isset($_ENV['url_facebook']) ? $_ENV['url_facebook']:'#'; ?>" class="facebook"><i class="icofont-facebook"></i></a>
             <a href="<?= isset($_ENV['url_skype']) ? $_ENV['url_skype']:'#'; ?>" class="skype"><i class="icofont-skype"></i></a>
             <a href="<?= isset($_ENV['url_linkedin']) ? $_ENV['url_linkedin']:'#'; ?>" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+            <a href="http://www.youtube.com" class="youtube"><i class="bx bxl-youtube"></i></a>
+            <a href="http://www.instagram.com" class="instagram"><i class="bx bxl-instagram"></i></a>
         </div>
     </div>
 </section>

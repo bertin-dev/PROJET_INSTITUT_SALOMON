@@ -63,7 +63,7 @@ define('MAX_CHARACTER1', 20);
           <div class="col-lg-12 text-center text-lg-center">
             <h3 style="color: white;">BIENVENUE A <span>L'<?= isset($_ENV['nom_site']) ? $_ENV['nom_site']:'INSTITUT SALOMON'; ?></span></h3>
             <p style="color: white;"> Les inscriptions en continu tout au long de l'année.</p>
-              <a class="cta-btn align-middle" href="#">TEL: <?= isset($_ENV['phone']) ? $_ENV['phone']:''; ?></a>
+              <a class="cta-btn align-middle" href="www.whatsapp.com"><i class="fa fa-whatsapp"></i> <?= isset($_ENV['phone']) ? $_ENV['phone']:''; ?></a>
           </div>
         </div>
 
@@ -341,7 +341,7 @@ define('MAX_CHARACTER1', 20);
                       endforeach;
                       ?>
                       </div>
-                      <h5 class="text-center"><small><strong>Rejoignez des dizaines de professionnels</strong></small></h5>
+                      <h5 class="text-center" style="margin-top: 20px"><small><strong><a href="index.php?id_page=6">Rejoignez des dizaines de professionnels</a></strong></small></h5>
                   </div>
               </div>
           </div>

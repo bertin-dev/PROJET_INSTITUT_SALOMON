@@ -4,19 +4,98 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-3 col-md-6 footer-contact">
+                <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Institut salomon</h4>
-                    <?php
-                    $connexion = App::getDB();
-                    foreach($connexion->query('SELECT phone, localisation, web_site, email, h_ouverture, h_fermeture FROM footer') as $retour):
-                        echo '<p>'.$retour->localisation.'<br>
+
+                    <ul>
+                        <li><i class="bx bx-chevron-right"></i>
+                            <a data-toggle="collapse" data-target="#collapseExampleArea" href="#collapseExampleArea" aria-expanded="true">
+                                Région du Littoral
+                                <div class="expand_caret caret"></div>
+                            </a>
+                            <div id="collapseExampleArea" class="collapse show">
+                                <?php
+                                $connexion = App::getDB();
+                                foreach($connexion->query('SELECT phone, localisation, web_site, email, h_ouverture, h_fermeture FROM footer') as $retour):
+                                    echo '<p>'.$retour->localisation.'<br>
                               <strong>Tel: </strong> '.$retour->phone.'<br>
                                 <strong>Email: </strong> '.$retour->email.'<br>
                                 <strong>Web: </strong> '.$retour->web_site.'<br>
                                 <strong> '.$retour->h_ouverture.' à '.$retour->h_fermeture.'</strong><br>
                              </p>';
-                    endforeach;
-                    ?>
+                                endforeach;
+                                ?>
+                            </div>
+                        </li>
+
+                        <li><i class="bx bx-chevron-right"></i>
+                            <a data-toggle="collapse" data-target="#collapseExampleArea1" href="#collapseExampleArea1" aria-expanded="false">
+                                Région du Nord
+                                <div class="expand_caret caret"></div>
+                            </a>
+                            <div id="collapseExampleArea1" class="collapse">
+                                <ul>
+                                    <li>Garoua
+                                        <ul>
+                                            <li>
+                                                Tel: (+237) 655676628 / 652165030
+                                                Email: info@institutsalomon.com
+                                                 07:00 à 18:00
+                                            </li>
+                                        </ul>
+                                    <li>Lagdo
+                                        <ul>
+                                            <li>
+                                                Tel: (+237) 655676628 / 652165030
+                                                Email: info@institutsalomon.com
+                                                 07:00 à 18:00
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>Touroua
+                                        <ul>
+                                            <li>
+                                                Tel: (+237) 655676628 / 652165030
+                                                Email: info@institutsalomon.com
+                                                 07:00 à 18:00
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li><i class="bx bx-chevron-right"></i>
+                            <a data-toggle="collapse" data-target="#collapseExampleArea2" href="#collapseExampleArea2" aria-expanded="false">
+                                Région de l'extrême-Nord
+                                <div class="expand_caret caret"></div>
+                            </a>
+                            <div id="collapseExampleArea2" class="collapse">
+                                <ul>
+                                    <li>Maroua
+                                        <ul>
+                                            <li>
+                                                Tel: (+237) 655676628 / 652165030
+                                                Email: info@institutsalomon.com
+                                                 07:00 à 18:00
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>Guider
+                                        <ul>
+                                            <li>
+                                                Tel: (+237) 655676628 / 652165030
+                                                Email: info@institutsalomon.com
+                                                 07:00 à 18:00
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
                 </div>
 
                 <div class="col-lg-3 col-md-6">
@@ -120,6 +199,8 @@
             <a href="<?= isset($_ENV['url_facebook']) ? $_ENV['url_facebook']:'#'; ?>" class="facebook"><i class="bx bxl-facebook"></i></a>
             <a href="<?= isset($_ENV['url_skype']) ? $_ENV['url_skype']:'#'; ?>" class="google-plus"><i class="bx bxl-skype"></i></a>
             <a href="<?= isset($_ENV['url_linkedin']) ? $_ENV['url_linkedin']:'#'; ?>" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            <a href="http://www.youtube.com" class="youtube"><i class="bx bxl-youtube"></i></a>
+            <a href="http://www.instagram.com" class="instagram"><i class="bx bxl-instagram"></i></a>
         </div>
     </div>
 </footer>

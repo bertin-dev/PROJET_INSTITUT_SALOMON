@@ -10,86 +10,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8385d80-414e-4851-bf3e-8475ca9b91c0" name="Default Changelist" comment="correction quelques elements">
-      <change afterPath="$PROJECT_DIR$/admin/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/img/logo2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/js/jquery.timego.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/admin/list.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/article/241f9997dcc578e1ee5a24c28c814a16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/article/miniature/241f9997dcc578e1ee5a24c28c814a16.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/home/186c6ab2c111fea27107288bf2267b0e.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/home/44d8fbab03074cf66a6b68f475436a27.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/home/7bf1ce2734e30323648c28dc1ff8fdc5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/home/miniature/186c6ab2c111fea27107288bf2267b0e.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/home/miniature/44d8fbab03074cf66a6b68f475436a27.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/home/miniature/7bf1ce2734e30323648c28dc1ff8fdc5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/home/miniature/dfa7fa042417b749acef87af8647ad18.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/1362cdd3e23d738168de97021ac1bfe1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/632e331bd5512ffda0355562401f1b63.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/7d9adf4f3da9c88ca88a2c415c2d4df8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/85ee1c176d275952771e23c1df8044fe.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/a81fc17c358089ad98f86bba8fb545ce.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/b75f2d1b804a598a30ff63695b7720a9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/d333a63706f286085087c96955f070f8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/e95aa3486250bce00f10a8feb23f1bb4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/miniature/1362cdd3e23d738168de97021ac1bfe1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/miniature/632e331bd5512ffda0355562401f1b63.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/miniature/7d9adf4f3da9c88ca88a2c415c2d4df8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/miniature/85ee1c176d275952771e23c1df8044fe.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/miniature/a81fc17c358089ad98f86bba8fb545ce.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/miniature/b75f2d1b804a598a30ff63695b7720a9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/miniature/d333a63706f286085087c96955f070f8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/images/miniature/e95aa3486250bce00f10a8feb23f1bb4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/slide/dfa7fa042417b749acef87af8647ad18.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vae/1b657f3970c1afdc68356ccb07612488.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vae/220b45be3cf39f775c47f7bd8dbc0f8d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vae/2a4effed1eefa3a0af1352dad04c8b46.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vae/3f95073d7d534e3a2c41c8cd26ba3fba.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vae/55a93708f4ab130d97a432edb19606aa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vae/879bb00b144de9cfa6964c987295130d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vae/c97f24233ce2384385db9e87e2da21e0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vae/miniature/1b657f3970c1afdc68356ccb07612488.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vae/miniature/220b45be3cf39f775c47f7bd8dbc0f8d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vae/miniature/2a4effed1eefa3a0af1352dad04c8b46.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vae/miniature/3f95073d7d534e3a2c41c8cd26ba3fba.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vae/miniature/55a93708f4ab130d97a432edb19606aa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vae/miniature/879bb00b144de9cfa6964c987295130d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/img/vae/miniature/c97f24233ce2384385db9e87e2da21e0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/08ae901b-0c6c-4557-a35c-ae79f802a374.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/08ae901b-0c6c-4557-a35c-ae79f802a374.xml" afterDir="false" />
+    <list default="true" id="e8385d80-414e-4851-bf3e-8475ca9b91c0" name="Default Changelist" comment="modification de la taille du titre de la page d'accueil et de la marge de droite">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/allMyModal.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/allMyModal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/blank.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/body.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/body.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/buttons.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/charts.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/controllers/traitement.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controllers/traitement.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/controllers/traitement.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controllers/traitement.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/css/sb-admin-2.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/css/sb-admin-2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/css/sb-admin-2.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/admin/css/sb-admin-2.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/forgot-password.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/list_posts.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/module.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/module.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/register.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/required_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/required_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/tables.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/admin/topbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/topbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/controller/submit.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller/submit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/controller/verification.php" beforeDir="false" afterPath="$PROJECT_DIR$/core/controller/verification.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/img/home/d662a80cb727fb4feac24433ed32f699.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/blog.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/blog.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/page_number.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/page_number.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/programmes.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/programmes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/template/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/template/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/template/topbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/template/topbar.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +103,7 @@
       <workItem from="1608470050147" duration="49000" />
       <workItem from="1609584124540" duration="2824000" />
       <workItem from="1609837430946" duration="80000" />
-      <workItem from="1610287013299" duration="1186000" />
+      <workItem from="1610287013299" duration="7651000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1607084401421</created>
@@ -221,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607927469503</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="modification de la taille du titre de la page d'accueil et de la marge de droite">
+      <created>1610289023530</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610289023530</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +180,8 @@
     <MESSAGE value="frontend programmes associatifs terminé" />
     <MESSAGE value="resolution des problèmes liés au Blog" />
     <MESSAGE value="correction quelques elements" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction quelques elements" />
+    <MESSAGE value="modification de la taille du titre de la page d'accueil et de la marge de droite" />
+    <option name="LAST_COMMIT_MESSAGE" value="modification de la taille du titre de la page d'accueil et de la marge de droite" />
   </component>
   <component name="WindowStateProjectService">
     <state x="493" y="248" key="#Composer" timestamp="1605515947269">
@@ -288,6 +222,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="517" y="292" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1606291933604" />
+    <state width="512" height="446" key="SwitcherDM" timestamp="1610344962591">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="512" height="446" key="SwitcherDM/0.0.1366.738@0.0.1366.738" timestamp="1610344962591" />
     <state x="1641" y="101" key="Vcs.Push.Dialog.v2" timestamp="1607440276207">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>
