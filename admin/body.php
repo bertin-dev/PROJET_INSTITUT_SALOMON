@@ -160,14 +160,14 @@ else {
                 <?php
                 }
                 //Nos Programmes de formation
-                else if($_GET['id'] == 2){
+                else if($_GET['id'] == 3){
 
                 }
                 //Valorisation des acquis de l'expérience
-                else if($_GET['id'] == 3){
+                else if($_GET['id'] == 11){
 
                 } //Cours de langue
-                else if($_GET['id'] == 4){
+                else if($_GET['id'] == 12){
 
                 } //programme d'assistance jeunes
                 else if($_GET['id'] == 5){
@@ -326,7 +326,7 @@ else {
                     </div>
                 <?php
                 } //Apropos
-                else if($_GET['id'] == 7){
+                else if($_GET['id'] == 2){
                     ?>
                     <div class="row">
                         <!-- Border Left Utilities -->

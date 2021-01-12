@@ -10,9 +10,258 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8385d80-414e-4851-bf3e-8475ca9b91c0" name="Default Changelist" comment="Ajout de la page 404">
+    <list default="true" id="e8385d80-414e-4851-bf3e-8475ca9b91c0" name="Default Changelist" comment="Modification du module formation effectué avec succès">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/article/565acfe433d5333aa9e8fda8e1bec346.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/article/a5bea843ff020a70816ffc5c77d16d25.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/article/miniature/565acfe433d5333aa9e8fda8e1bec346.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/article/miniature/a5bea843ff020a70816ffc5c77d16d25.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/238b7102f04fc1cf10c631448a324b73.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/6411821709336d43dfceec4d203f8c1e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/75aef2471b8a55edf77d272fd9f788d3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/7921d0c16939ade4f3e8b06bd6e40c1f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/916ac69406148982f66453c1f5b64202.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/a7c9bdf8205faffa4be6e165c0332a71.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/f738d6ae2c2742bdf8f95ae73e1b765f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/238b7102f04fc1cf10c631448a324b73.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/6411821709336d43dfceec4d203f8c1e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/75aef2471b8a55edf77d272fd9f788d3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/7921d0c16939ade4f3e8b06bd6e40c1f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/916ac69406148982f66453c1f5b64202.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/a7c9bdf8205faffa4be6e165c0332a71.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/f738d6ae2c2742bdf8f95ae73e1b765f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/images/321aa168a38ce877a422bf81c71a8119.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/images/353eb642cd27863fd604e07d825b62e4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/images/988de7510bb2ba6646b916472a490421.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/images/fb6e75fcf4331fcc803c571c17f6a620.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/images/fe83d1450add9d0ea6f56d06904d88d4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/images/miniature/321aa168a38ce877a422bf81c71a8119.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/images/miniature/353eb642cd27863fd604e07d825b62e4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/images/miniature/988de7510bb2ba6646b916472a490421.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/images/miniature/fb6e75fcf4331fcc803c571c17f6a620.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/images/miniature/fe83d1450add9d0ea6f56d06904d88d4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/paj/5246e8cadd4d8179fb7d827b989b3a55.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/paj/781ac0ca1edd1dbd7d7bf75a489819b6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/paj/miniature/5246e8cadd4d8179fb7d827b989b3a55.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/paj/miniature/781ac0ca1edd1dbd7d7bf75a489819b6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/052c2a02b4d038181540b75f7541b605.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/16602e0ab04c5ab2c8f50315f7aacb0a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/1b25de05e555b3b0392f21c716d3d785.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/8c70d64bc15365daac144c42ecda9b42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/a8c06634f7864d605e5d03f0a513e82c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/c23403736271a63787c78eb6fa64b9d5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/c6e47451d2cfcf8d750237972dc8061c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/cb9398666e888e15f63d8a41508e9290.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/052c2a02b4d038181540b75f7541b605.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/16602e0ab04c5ab2c8f50315f7aacb0a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/1b25de05e555b3b0392f21c716d3d785.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/8c70d64bc15365daac144c42ecda9b42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/a8c06634f7864d605e5d03f0a513e82c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/c23403736271a63787c78eb6fa64b9d5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/c6e47451d2cfcf8d750237972dc8061c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/cb9398666e888e15f63d8a41508e9290.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/13bcce397a1d214c77901e8726443e50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/3dfc3f2b8e6c3a5ab2d95d87912bfed2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/521c2221e28e89e73430138a2be0e64a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/5ce2821b489a46d734bdd8452a510cdb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/8de1628ba5c2a9014d7885e07e535254.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/95249c29283a7b29862ae67e63fbc649.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/a4ddf09ac80875ea19741599f121f262.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/d3bdfda34aeafb1926247e70d6aff802.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/d7ffd41de69aed0fa28a322f83a169ba.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/e2797ae5207e8d2ed4b1cceb6801e8bf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/efd4674a5bc0c49942cce14575d88eda.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/13bcce397a1d214c77901e8726443e50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/3dfc3f2b8e6c3a5ab2d95d87912bfed2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/521c2221e28e89e73430138a2be0e64a.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/5ce2821b489a46d734bdd8452a510cdb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/8de1628ba5c2a9014d7885e07e535254.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/95249c29283a7b29862ae67e63fbc649.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/a4ddf09ac80875ea19741599f121f262.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/d3bdfda34aeafb1926247e70d6aff802.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/d7ffd41de69aed0fa28a322f83a169ba.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/e2797ae5207e8d2ed4b1cceb6801e8bf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/efd4674a5bc0c49942cce14575d88eda.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/body.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/body.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/controllers/traitement.js" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controllers/traitement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/controllers/traitement.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/controllers/traitement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/admin/module.php" beforeDir="false" afterPath="$PROJECT_DIR$/admin/module.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/113f45c63d9631fc52a93e32781e7d76.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/1215bc3cd406e4673355b598456adcd8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/14c95701d0a01a79b33128dcc1fdd0d3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/156decf372331d98bcc0043d151e8110.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/241f9997dcc578e1ee5a24c28c814a16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/405fba5d74299153eeedcd50b75bb2c6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/41566adb53e2142396601eed57e115b2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/4993ebce85e9bf01d65f13976ef18dc7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/62fdad881a29593efa07f92558bf47b0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/6811e2cc14f9bc7b2a8bb09e5162f739.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/75031a043c6265d6c3bc296546f72eaf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/7de0acf7b447b5bac654b7c9a0399ee3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/a64245ec80f6d2039bf52f659564cf91.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/ad7405d629844b4641321bd75858676b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/cfc5b47299361ae80c09d6e0a50bbf52.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/d3f166dc913efae2f9b1dfec49b0b9e6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/f38a3b86c7c3374da6032854edc76110.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/fba8b8a55138ba5fab3c45d229d12a93.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/113f45c63d9631fc52a93e32781e7d76.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/1215bc3cd406e4673355b598456adcd8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/14c95701d0a01a79b33128dcc1fdd0d3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/156decf372331d98bcc0043d151e8110.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/241f9997dcc578e1ee5a24c28c814a16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/405fba5d74299153eeedcd50b75bb2c6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/41566adb53e2142396601eed57e115b2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/4993ebce85e9bf01d65f13976ef18dc7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/62fdad881a29593efa07f92558bf47b0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/6811e2cc14f9bc7b2a8bb09e5162f739.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/75031a043c6265d6c3bc296546f72eaf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/7de0acf7b447b5bac654b7c9a0399ee3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/a64245ec80f6d2039bf52f659564cf91.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/ad7405d629844b4641321bd75858676b.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/cfc5b47299361ae80c09d6e0a50bbf52.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/d3f166dc913efae2f9b1dfec49b0b9e6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/f38a3b86c7c3374da6032854edc76110.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/article/miniature/fba8b8a55138ba5fab3c45d229d12a93.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/045925ed482b53ba02335cac008715e8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/1137cb12e81e5f6550b794829841a6a2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/2e54cb088315f56c6fa11d27c5bd5c27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/32f583f9719030dbccf7222907cb4aec.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/344684e132babfab82af2950efb8a905.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/4de4c5886865aee71e4a0f9024ac974d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/57a68878f7baed7b6cd367ce81c12d11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/605eaa72106a4bc08c196e76e1721602.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/7f26a2fd6e1d11332e3cd52bb24079ec.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/9db435e07e2b71a39a1d59ab166bfaa0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/cdeca0c7e1508616db8bf0ed5d047056.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/cfd273e67ad4783e5b22dadb39a858ab.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/f96725dc973aa77498817d69bd90653d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/045925ed482b53ba02335cac008715e8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/1137cb12e81e5f6550b794829841a6a2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/2e54cb088315f56c6fa11d27c5bd5c27.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/32f583f9719030dbccf7222907cb4aec.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/344684e132babfab82af2950efb8a905.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/4de4c5886865aee71e4a0f9024ac974d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/57a68878f7baed7b6cd367ce81c12d11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/605eaa72106a4bc08c196e76e1721602.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/7f26a2fd6e1d11332e3cd52bb24079ec.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/9db435e07e2b71a39a1d59ab166bfaa0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/cdeca0c7e1508616db8bf0ed5d047056.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/cfd273e67ad4783e5b22dadb39a858ab.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/equipe_pedagogique/miniature/f96725dc973aa77498817d69bd90653d.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/images/3ff08c3a3e3f16d192572c044a5ac9ef.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/images/51d9bfe18bc316a889276f6e3c1286fe.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/images/7cfdb3d1aff99fb824d868bdccb5970c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/images/b5600d15ec0268f9e3d5f4947061caf2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/images/miniature/3ff08c3a3e3f16d192572c044a5ac9ef.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/images/miniature/51d9bfe18bc316a889276f6e3c1286fe.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/images/miniature/7cfdb3d1aff99fb824d868bdccb5970c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/images/miniature/b5600d15ec0268f9e3d5f4947061caf2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/0173a27b644d9fcf4605b6ed204229c2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/01fa6b1d36a90b51a48d3aa5ca63b8b8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/06e3fc65f712565edb523b19609aa9a5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/0dd5217226788671f1cbbaef0fbee8ca.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/0fcd6fd6ce3ca916cadbcd4a6c7ec768.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/14a3790b386f67a66879a63c469e5404.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/1ba76b2122bcc3e80330a41e43c0c53b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/2180fd1a4ae0cc20fc6125ddad85ce32.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/33c028044ab9247ea2f5b02ee428ab61.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/3ce2ab13f8ac651e4a7ef533e72ba14a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/48db20ec01cc669cd4b26501b8fb16cb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/5e0b48edd9d8db9ae1c8b743ad2c0577.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/69ff51eb965f27cf5d5cc6464fbf8427.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/6c4adfee17bbd884bb28068f7756fb8d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/785402f7fd15eda46ea9b13223e69652.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/7aa111b037346d9f39cabb5ab16b3a20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/8d587f0a3dd9a34f14e2cae45774815c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/8fb3c9ea6fe5c172aaa96263e02fc649.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/9feff3e2b253cad0dfb0207988aac7f9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/a756f4db9f14c68e5449c1e77f94273b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/bfc168cb18c1fcd30a80fe7807b9cd20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/c5bc2de4c8af6204966cfcb9e88e5529.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/ca98a835db15adedb9cd0c4fdab19cd4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/db18ff381aea0905a42cfec872444a15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/dbb8e3a7d8e6a81c51d1a6301ae59642.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/df78b67f1da1267642903415d0d3b250.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/e0554a003a35566349a93dcbda27c7c4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/ebb636fa84d632847465b94c935034c2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/eff55fad027b77d1b9bc591c65b36121.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/f06f1df756d95f101cec9d1b34e1a975.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/f224b62a8cfece0be15c8f462fbfcf2f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/f36631d1c6b657d8e93000b83df7c462.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/f497c8cbac378d963711c7992b11d247.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/0173a27b644d9fcf4605b6ed204229c2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/01fa6b1d36a90b51a48d3aa5ca63b8b8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/06e3fc65f712565edb523b19609aa9a5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/0dd5217226788671f1cbbaef0fbee8ca.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/0fcd6fd6ce3ca916cadbcd4a6c7ec768.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/14a3790b386f67a66879a63c469e5404.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/1ba76b2122bcc3e80330a41e43c0c53b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/2180fd1a4ae0cc20fc6125ddad85ce32.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/33c028044ab9247ea2f5b02ee428ab61.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/3ce2ab13f8ac651e4a7ef533e72ba14a.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/48db20ec01cc669cd4b26501b8fb16cb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/5e0b48edd9d8db9ae1c8b743ad2c0577.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/69ff51eb965f27cf5d5cc6464fbf8427.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/6c4adfee17bbd884bb28068f7756fb8d.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/785402f7fd15eda46ea9b13223e69652.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/7aa111b037346d9f39cabb5ab16b3a20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/8d587f0a3dd9a34f14e2cae45774815c.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/8fb3c9ea6fe5c172aaa96263e02fc649.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/9feff3e2b253cad0dfb0207988aac7f9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/a756f4db9f14c68e5449c1e77f94273b.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/bfc168cb18c1fcd30a80fe7807b9cd20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/c5bc2de4c8af6204966cfcb9e88e5529.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/ca98a835db15adedb9cd0c4fdab19cd4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/db18ff381aea0905a42cfec872444a15.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/dbb8e3a7d8e6a81c51d1a6301ae59642.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/df78b67f1da1267642903415d0d3b250.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/e0554a003a35566349a93dcbda27c7c4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/ebb636fa84d632847465b94c935034c2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/eff55fad027b77d1b9bc591c65b36121.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/f06f1df756d95f101cec9d1b34e1a975.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/f224b62a8cfece0be15c8f462fbfcf2f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/f36631d1c6b657d8e93000b83df7c462.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/langue/miniature/f497c8cbac378d963711c7992b11d247.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/paj/fd93019b7b205ca50c36046a207ecc38.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/paj/miniature/fd93019b7b205ca50c36046a207ecc38.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/partenaire/436636ba95078e7d3ec2509a99e97e74.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/partenaire/4fbffb1d6230b44e30cc33990b3c9911.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/partenaire/636e42bebcb3728285a3c0986aa67a14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/partenaire/9026c671491da2b572de4558c4c8fc40.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/partenaire/93d20675160178f969070d6bf7b0df93.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/partenaire/eb43b07f5e8f1b0790244764e9db0f20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/partenaire/f7c3b6381b830e3fdd03526ab29d71aa.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/436636ba95078e7d3ec2509a99e97e74.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/4fbffb1d6230b44e30cc33990b3c9911.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/636e42bebcb3728285a3c0986aa67a14.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/9026c671491da2b572de4558c4c8fc40.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/93d20675160178f969070d6bf7b0df93.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/eb43b07f5e8f1b0790244764e9db0f20.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/partenaire/miniature/f7c3b6381b830e3fdd03526ab29d71aa.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vae/062a450276302913221c81bd74b69449.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vae/0bd31cf0df23510654824fc29791c534.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vae/332cc6eeb30de98c726e5f5d44598bb2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vae/a3bf8482f38cf1b256f6fb80bd2b41af.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vae/e6c931a56ff7a3e1349cf110da53c0fc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vae/miniature/062a450276302913221c81bd74b69449.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vae/miniature/0bd31cf0df23510654824fc29791c534.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vae/miniature/332cc6eeb30de98c726e5f5d44598bb2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vae/miniature/a3bf8482f38cf1b256f6fb80bd2b41af.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vae/miniature/e6c931a56ff7a3e1349cf110da53c0fc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vie_ass/305ea14e90fcff92aa1b70aa044833fb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vie_ass/955199ed932519a4d564d0fe8f3de7f0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vie_ass/9cb5d1f3534c2983016950208e7fd3e3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vie_ass/9eb665f1ab345ba83701ad85e9ffa6f1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vie_ass/a38ad3f1001c252bb3cd0726997f6ecc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/305ea14e90fcff92aa1b70aa044833fb.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/955199ed932519a4d564d0fe8f3de7f0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/9cb5d1f3534c2983016950208e7fd3e3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/9eb665f1ab345ba83701ad85e9ffa6f1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/img/vie_ass/miniature/a38ad3f1001c252bb3cd0726997f6ecc.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/contact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/programmes.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/programmes.php" afterDir="false" />
     </list>
@@ -59,8 +308,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
@@ -102,7 +353,7 @@
       <workItem from="1608470050147" duration="49000" />
       <workItem from="1609584124540" duration="2824000" />
       <workItem from="1609837430946" duration="80000" />
-      <workItem from="1610287013299" duration="18823000" />
+      <workItem from="1610287013299" duration="33133000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1607084401421</created>
@@ -167,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610351317288</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Modification du module formation effectué avec succès">
+      <created>1610379733387</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610379733387</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,13 +454,18 @@
     <MESSAGE value="modification de la taille du titre de la page d'accueil et de la marge de droite" />
     <MESSAGE value="&#10;modification du footer effectué avec succès" />
     <MESSAGE value="Ajout de la page 404" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout de la page 404" />
+    <MESSAGE value="Modification du module formation effectué avec succès" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modification du module formation effectué avec succès" />
   </component>
   <component name="WindowStateProjectService">
     <state x="493" y="248" key="#Composer" timestamp="1605515947269">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="493" y="248" key="#Composer/0.0.1366.738/1366.0.1366.738@0.0.1366.738" timestamp="1605515947269" />
+    <state x="275" y="27" key="#Deployment" timestamp="1610406494758">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="275" y="27" key="#Deployment/0.0.1366.738@0.0.1366.738" timestamp="1610406494758" />
     <state x="1675" y="47" key="#Inspections" timestamp="1607507955926">
       <screen x="1366" y="0" width="1366" height="738" />
     </state>

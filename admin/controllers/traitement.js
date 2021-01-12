@@ -1935,7 +1935,7 @@ $(function() {
                     setTimeout(function () {
                         cat.html('Apropos ajouté avec succès.').slideDown().hide();
                         //$('body').load('module.php?name=formation', function() {});
-                        $(location).attr('href',"body.php?id=7");
+                        $(location).attr('href',"body.php?id=2");
                     }, 3000);
 
                 } else if(data === 'success-update'){
@@ -1946,7 +1946,7 @@ $(function() {
                     cat.html('Apropos Modifié avec succès').show();
                     setTimeout(function () {
                         cat.html('Apropos Modifié avec succès').slideDown().hide();
-                        $('body').load('body.php?id=7', function() {
+                        $('body').load('body.php?id=2', function() {
                         });
                     }, 3000);
                 }else {

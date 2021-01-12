@@ -2615,7 +2615,7 @@ DELETE APROPOS
 ========================================================================== */
 if(isset($_GET['delA'])){
     App::getDB()->delete('DELETE FROM about WHERE id=:id', ['id' =>$_GET['delA']]);
-    header('Location: ../body.php?id=7');
+    header('Location: ../body.php?id=2');
 }
 
 
@@ -2830,7 +2830,7 @@ if(isset($_GET['singUpSubmit'])) {
     $_POST['passwordSingUp'] = sha1($_POST['passwordSingUp']);
 
     // Connexion à la base de données
-
+    $connexion = App::getDB();
     $nbre = $connexion->rowCount('SELECT ID FROM users WHERE last_name="'.$_POST['nomSingUp'].'" 
      OR email="'.$_POST['emailSingUp'].'"');
 
@@ -2854,9 +2854,9 @@ if(isset($_GET['singUpSubmit'])) {
         else
         {
 
-            $connexion->insert('INSERT INTO users(last_name, first_name, profession, email, password, created_at) 
-                                      VALUES(?,?,?,?,?,?)', [$_POST['nomSingUp'], $_POST['prenomSingUp'],$_POST['profession'],
-                $_POST['emailSingUp'], $_POST['passwordSingUp'], time()]);
+            $connexion->insert('INSERT INTO users(last_name, first_name, profession, email, password, created_at, user_type) 
+                                      VALUES(?,?,?,?,?,?,?)', [$_POST['nomSingUp'], $_POST['prenomSingUp'],$_POST['profession'],
+                $_POST['emailSingUp'], $_POST['passwordSingUp'], time(), 1]);
 
             $max = $connexion->prepare_request('SELECT id AS max_id FROM users ORDER BY id DESC LIMIT 1', array());
 

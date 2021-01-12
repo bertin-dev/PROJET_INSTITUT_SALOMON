@@ -769,7 +769,7 @@ if(isset($_GET['id'])){
                 }
                 //Vie Associative
                 else if($_GET['name'] == 'vie_ass'){
-                    $_ENV['header_id'] = $_GET['id'];
+                    $_ENV['header_id'] = isset($_GET['id']) ? $_GET['id'] : '1';
                     ?>
                     <!-- Content Row -->
                     <div class="row">
@@ -1527,7 +1527,7 @@ if(isset($_GET['id'])){
                                     <div class="card mb-4 py-3 border-left-primary">
                                         <a class="card-body" href="#" data-toggle="modal" data-target="#paj">
                                             <i class="fas fa-fw fa-plus"></i>
-                                            <span>Programme d\'assistance jeunes</span>
+                                            <span>Programme d'assistance jeunes</span>
                                         </a>
                                     </div>
                                     <!-- DataTales Example -->
@@ -1570,7 +1570,7 @@ if(isset($_GET['id'])){
                                                 <td title="Libelle">'.$mod->libelle.'</td> 
                                                 <td title="Description">'.$mod->description.'</td> 
                                                 <td title="Image"><img class="img-fluid" src="'.$mod->img_url = str_replace('../../', '../', $mod->img_url).'" alt="'.$mod->libelle .'" title="'.$mod->libelle .'"></td>
-                                                <td title="Télécharger"><a href="'.$mod->fichier.'" title="fiche">Télécharger</a></td> 
+                                                <td title="Télécharger"><a href="'.$mod->fichier.'" title="fiche"></a></td> 
                                                 <td title="Modifier" class="text-center"><a href="module.php?name=paj&updatePAJ='.$mod->id.'"><i class="fas fa-fw fa-history"></i> </a></td>
                                                 <td title="Supprimer" class="text-center"><a href="module.php?name=paj&delPAJ='.$mod->id.'" onclick="deletePAJ('.$mod->id.'); return false;"><i class="fas fa-fw fa-trash"></i></a></td>
                                             </tr>';

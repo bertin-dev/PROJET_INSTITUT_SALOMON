@@ -77,30 +77,39 @@ define('MAX_CHARACTER1', 20);
           <div class="container">
               <div class="row">
 
-                  <?php
-                  foreach($connexion->query('SELECT libelle, description, img_url FROM formation
-                                                      WHERE headers_id ="'.$_ENV['id_page'].'" LIMIT 2') as $retour):
-
-                      //$img = isset($retour->img_url) ? str_replace('../../public/', ' ', $retour->img_url): '../public/assets/img/features-1.png';
-                      $img = '../public/assets/img/features-1.png';
-                      echo '<div class="col-lg-6">
+                  <div class="col-lg-6">
                       <div class="card mb-3" style="max-width: 540px;">
                           <div class="row no-gutters">
                               <div class="col-md-4">
-                                  <img src="'.$img.'" class="card-img" alt="'.$retour->libelle.'" title="'.$retour->libelle.'">
+                                  <img src="../public/assets/img/features-1.png" class="card-img" alt="" title="">
                               </div>
                               <div class="col-md-8">
                                   <div class="card-body">
-                                      <h5 class="card-title">'.$retour->libelle.'</h5>
-                                      <p class="card-text">'.$retour->description.'</p>
+                                      <h5 class="card-title">E-learning integral</h5>
+                                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad debitis facere maxime quo ullam? Adipisci amet assumenda cumque distinctio, eaque eos eveniet odit pariatur provident quasi quis, unde vero voluptatem.</p>
                                       <!--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
                                   </div>
                               </div>
                           </div>
                       </div>
-                  </div>';
-                  endforeach;
-                  ?>
+                  </div>
+
+                  <div class="col-lg-6">
+                      <div class="card mb-3" style="max-width: 540px;">
+                          <div class="row no-gutters">
+                              <div class="col-md-4">
+                                  <img src="../public/assets/img/features-1.png" class="card-img" alt="" title="">
+                              </div>
+                              <div class="col-md-8">
+                                  <div class="card-body">
+                                      <h5 class="card-title">Présentiel ou semi présentiel (mode séminaires)</h5>
+                                      <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, adipisci animi aperiam aut blanditiis dolor doloribus facilis fugiat hic incidunt natus nesciunt omnis pariatur quia sapiente sunt tempora vel voluptatem?</p>
+                                      <!--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
               </div>
           </div>
 
@@ -348,6 +357,11 @@ define('MAX_CHARACTER1', 20);
           <div class="container">
 
               <div class="row">
+                  <p>
+                      La VAE consiste à convertir son expérience professionnelle acquise en diplôme universitaire Supérieur sans pour autant s'asseoir sur les bancs pour étudier à nouveau. Cela est reconnu dans tous les continents.
+                      La procédure se fait sur étude de dossier. <br> <br>
+                      <strong>Eléments à fournir :</strong>
+                  </p>
                   <div class="col-lg-4 mb-5 mb-lg-0" data-aos="fade-right">
                       <ul class="nav nav-tabs flex-column">
                           <?php

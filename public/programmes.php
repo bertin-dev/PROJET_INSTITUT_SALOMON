@@ -46,7 +46,7 @@
                                                       ORDER BY m.id DESC 
                                                       ') as $retour):
 
-            echo ' <div class="accordion col-lg-6" id="accordionExample'.$retour->mod_id.'" data-aos="fade-up">
+            echo ' <div class="accordion col-lg-6" id="accordionExample'.$retour->mod_id.'" data-aos="fade-up" style="margin-bottom: 50px">
 
                           <div class="card">
                               <div class="card-header" id="heading'.$retour->mod_id.'">
@@ -58,7 +58,7 @@
                                   </h2>
                               </div>
 
-                              <div data-aos="fade-right" style="background: #8A2BE2;" id="collapse'.$retour->mod_id.'" class="collapse show" aria-labelledby="heading'.$retour->mod_id.'" data-parent="#accordionExample'.$retour->mod_id.'">
+                              <div data-aos="fade-right" style="background: #8A2BE2;" id="collapse'.$retour->mod_id.'" class="collapse" aria-labelledby="heading'.$retour->mod_id.'" data-parent="#accordionExample'.$retour->mod_id.'">
                                   <div class="card-body">
                                   
                                        <ul style="color: white">';
